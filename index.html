@@ -1,1149 +1,260 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Adithya Sharma · QA Engineer & Full‑Stack Builder</title>
-  <!-- Fonts & Icons -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    body {
-      background: #0b0b1a;
-      color: #f0f0ff;
-      font-family: 'DM Sans', sans-serif;
-      overflow-x: hidden;
-      line-height: 1.6;
-      position: relative;
-    }
+<title>Adithya Sharma | QA Engineer</title>
 
-    /* Animated gradient background */
-    #gradient-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -2;
-      background: linear-gradient(125deg, #0a0a1f 0%, #1a1a3a 50%, #2d1b3a 100%);
-      background-size: 400% 400%;
-      animation: gradientShift 20s ease infinite;
-    }
+<link rel="stylesheet" href="style.css">
 
-    @keyframes gradientShift {
-      0% { background-position: 0% 0%; }
-      50% { background-position: 100% 100%; }
-      100% { background-position: 0% 0%; }
-    }
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    /* Floating particles */
-    #particles {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      pointer-events: none;
-    }
+<style>
 
-    .particle {
-      position: absolute;
-      background: rgba(255, 100, 200, 0.2);
-      border-radius: 50%;
-      filter: blur(4px);
-      animation: float 10s infinite linear;
-    }
+body{
+font-family: Arial, sans-serif;
+margin:0;
+background:#0f172a;
+color:#fff;
+}
 
-    @keyframes float {
-      from { transform: translateY(100vh) scale(0); opacity: 1; }
-      to { transform: translateY(-10vh) scale(1); opacity: 0; }
-    }
+header{
+padding:40px;
+text-align:center;
+background:#020617;
+}
 
-    /* Navigation */
-    nav {
-      position: fixed;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 90%;
-      max-width: 1200px;
-      padding: 16px 32px;
-      background: rgba(20, 15, 40, 0.7);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 100, 200, 0.3);
-      border-radius: 60px;
-      z-index: 1000;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    }
+header h1{
+font-size:42px;
+margin:0;
+}
 
-    .logo {
-      font-family: 'JetBrains Mono', monospace;
-      font-weight: 700;
-      font-size: 1.4rem;
-      background: linear-gradient(45deg, #ff64c8, #a064ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+header p{
+color:#94a3b8;
+}
 
-    .nav-links {
-      display: flex;
-      gap: 36px;
-    }
+.section{
+padding:60px 10%;
+}
 
-    .nav-links a {
-      color: #ddd;
-      text-decoration: none;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: 0.2s;
-      position: relative;
-    }
+.section h2{
+font-size:32px;
+margin-bottom:30px;
+}
 
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0%;
-      height: 2px;
-      background: linear-gradient(90deg, #ff64c8, #a064ff);
-      transition: 0.3s;
-    }
+.projects-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
 
-    .nav-links a:hover {
-      color: white;
-    }
-    .nav-links a:hover::after {
-      width: 100%;
-    }
+.project-card{
+background:#020617;
+padding:25px;
+border-radius:12px;
+border:1px solid #1e293b;
+transition:0.3s;
+}
 
-    /* Main container */
-    .container {
-      max-width: 1300px;
-      margin: 0 auto;
-      padding: 120px 40px 40px;
-    }
+.project-card:hover{
+transform:translateY(-5px);
+border-color:#38bdf8;
+}
 
-    /* Hero */
-    .hero {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      min-height: 90vh;
-      position: relative;
-    }
+.project-name{
+font-size:20px;
+margin:10px 0;
+}
 
-    .glitch-wrapper {
-      font-size: clamp(3rem, 12vw, 7rem);
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      line-height: 1.1;
-      margin-bottom: 20px;
-    }
+.project-desc{
+color:#94a3b8;
+font-size:14px;
+}
 
-    .glitch {
-      position: relative;
-      color: white;
-      letter-spacing: -0.02em;
-      animation: glitch-skew 4s infinite linear alternate-reverse;
-    }
+.project-tags{
+margin-top:15px;
+}
 
-    .glitch::before,
-    .glitch::after {
-      content: attr(data-text);
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
+.tag{
+background:#1e293b;
+padding:6px 10px;
+border-radius:6px;
+font-size:12px;
+margin-right:5px;
+}
 
-    .glitch::before {
-      animation: glitch1 1.5s infinite linear alternate-reverse;
-      color: #ff64c8;
-      z-index: -1;
-    }
+.project-links{
+margin-top:20px;
+}
 
-    .glitch::after {
-      animation: glitch2 1.8s infinite linear alternate-reverse;
-      color: #64ffff;
-      z-index: -2;
-    }
+.project-links a{
+text-decoration:none;
+color:#38bdf8;
+margin-right:15px;
+}
 
-    @keyframes glitch1 {
-      0% { clip-path: inset(20% 0 30% 0); transform: translate(-2px, 2px); }
-      100% { clip-path: inset(80% 0 5% 0); transform: translate(2px, -2px); }
-    }
-    @keyframes glitch2 {
-      0% { clip-path: inset(60% 0 10% 0); transform: translate(2px, -2px); }
-      100% { clip-path: inset(5% 0 70% 0); transform: translate(-2px, 2px); }
-    }
-    @keyframes glitch-skew {
-      0% { transform: skew(0deg); }
-      20% { transform: skew(2deg); }
-      40% { transform: skew(-2deg); }
-      60% { transform: skew(1deg); }
-      80% { transform: skew(-1deg); }
-      100% { transform: skew(0deg); }
-    }
+footer{
+text-align:center;
+padding:30px;
+color:#94a3b8;
+}
 
-    .hero-tagline {
-      font-size: 1.4rem;
-      color: #b0b0ff;
-      margin: 20px 0 30px;
-      max-width: 750px;
-    }
+</style>
 
-    .hero-tagline span {
-      background: linear-gradient(45deg, #ff64c8, #a064ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: 600;
-    }
-
-    .cta-buttons {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      padding: 14px 36px;
-      border-radius: 60px;
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: 0.3s;
-      border: 2px solid transparent;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .btn-primary {
-      background: linear-gradient(45deg, #ff64c8, #a064ff);
-      color: #0b0b1a;
-      box-shadow: 0 0 30px rgba(255, 100, 200, 0.5);
-    }
-    .btn-primary:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 50px #ff64c8;
-    }
-
-    .btn-outline {
-      border-color: #ff64c8;
-      color: white;
-      background: transparent;
-    }
-    .btn-outline:hover {
-      background: rgba(255, 100, 200, 0.2);
-      border-color: #ff64c8;
-      transform: translateY(-3px);
-    }
-
-    /* Stats */
-    .stats {
-      display: flex;
-      gap: 50px;
-      margin-top: 60px;
-      flex-wrap: wrap;
-    }
-    .stat-item {
-      text-align: center;
-    }
-    .stat-num {
-      font-size: 3rem;
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      background: linear-gradient(45deg, #ff64c8, #a064ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .stat-label {
-      color: #aaa;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-    }
-
-    /* Section headings */
-    .section-head {
-      margin: 80px 0 40px;
-      position: relative;
-      display: inline-block;
-    }
-    .section-head h2 {
-      font-family: 'Syne', sans-serif;
-      font-size: 3.5rem;
-      font-weight: 800;
-      background: linear-gradient(45deg, #fff, #ff64c8);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .section-head .back-text {
-      position: absolute;
-      top: -20px;
-      left: -20px;
-      font-size: 6rem;
-      font-weight: 800;
-      color: rgba(255,255,255,0.03);
-      z-index: -1;
-      white-space: nowrap;
-    }
-
-    /* Project cards */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 30px;
-      margin-top: 30px;
-    }
-
-    .project-card {
-      background: rgba(30, 20, 50, 0.6);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 100, 200, 0.2);
-      border-radius: 40px;
-      padding: 30px;
-      transition: 0.3s;
-      box-shadow: 0 20px 30px -10px rgba(0,0,0,0.5);
-      transform-style: preserve-3d;
-      transform: perspective(800px) rotateX(0deg) rotateY(0deg);
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .project-card:hover {
-      border-color: #ff64c8;
-      box-shadow: 0 30px 50px -10px #ff64c8;
-      transform: perspective(800px) rotateX(2deg) rotateY(2deg) translateY(-8px);
-    }
-
-    .project-oss {
-      display: inline-block;
-      background: rgba(255, 100, 200, 0.2);
-      border: 1px solid #ff64c8;
-      border-radius: 60px;
-      padding: 4px 16px;
-      font-size: 0.8rem;
-      font-family: 'JetBrains Mono', monospace;
-      color: #ff64c8;
-      margin-bottom: 20px;
-      width: fit-content;
-    }
-
-    .project-name {
-      font-size: 2.2rem;
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      margin-bottom: 15px;
-    }
-
-    .project-desc {
-      color: #bbb;
-      margin-bottom: 20px;
-      flex: 1;
-    }
-
-    .project-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 20px 0;
-    }
-    .tag {
-      background: rgba(160, 100, 255, 0.15);
-      border: 1px solid #a064ff;
-      border-radius: 60px;
-      padding: 4px 12px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.7rem;
-      color: #d0b0ff;
-    }
-
-    .project-links {
-      display: flex;
-      gap: 16px;
-      align-items: center;
-    }
-    .project-links a, .project-links button {
-      background: none;
-      border: 1px solid rgba(255,255,255,0.2);
-      color: white;
-      padding: 8px 20px;
-      border-radius: 60px;
-      font-family: 'Syne', sans-serif;
-      font-weight: 600;
-      font-size: 0.9rem;
-      text-decoration: none;
-      transition: 0.2s;
-      cursor: pointer;
-    }
-    .project-links a:hover, .project-links button:hover {
-      background: rgba(255,100,200,0.2);
-      border-color: #ff64c8;
-    }
-
-    /* Featured project extra */
-    .featured {
-      grid-column: 1 / -1;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
-      background: linear-gradient(145deg, #1e1432, #130e22);
-    }
-    .featured .project-details {
-      display: flex;
-      flex-direction: column;
-    }
-    .featured .project-visual {
-      background: rgba(0,0,0,0.3);
-      border-radius: 30px;
-      padding: 20px;
-      border: 1px solid #ff64c8;
-      font-family: 'JetBrains Mono', monospace;
-    }
-    .terminal-line {
-      color: #0f0;
-      font-size: 0.9rem;
-      line-height: 1.8;
-    }
-
-    /* Skills grid */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 30px;
-      margin: 40px 0;
-    }
-    .skill-group {
-      background: rgba(20,10,30,0.5);
-      backdrop-filter: blur(4px);
-      border-radius: 30px;
-      padding: 30px 20px;
-      border: 1px solid rgba(160,100,255,0.3);
-      transition: 0.3s;
-    }
-    .skill-group:hover {
-      border-color: #ff64c8;
-      transform: scale(1.02);
-    }
-    .skill-group h3 {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.4rem;
-      margin-bottom: 20px;
-      color: #ff64c8;
-    }
-    .skill-items {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .skill-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: #ccc;
-    }
-    .skill-item i {
-      color: #a064ff;
-      width: 20px;
-    }
-
-    /* Beyond Testing section */
-    .beyond-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 30px;
-      margin: 40px 0;
-    }
-    .beyond-card {
-      background: rgba(160,100,255,0.1);
-      border: 1px solid #a064ff;
-      border-radius: 40px;
-      padding: 30px 20px;
-      text-align: center;
-      transition: 0.3s;
-    }
-    .beyond-card:hover {
-      border-color: #ff64c8;
-      transform: translateY(-8px);
-      box-shadow: 0 0 30px #ff64c8;
-    }
-    .beyond-card i {
-      font-size: 3rem;
-      margin-bottom: 20px;
-      color: #ff64c8;
-    }
-    .beyond-card h4 {
-      font-size: 1.4rem;
-      margin-bottom: 10px;
-    }
-    .beyond-card p {
-      color: #bbb;
-    }
-
-    /* Timeline */
-    .timeline {
-      position: relative;
-      padding-left: 40px;
-    }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: linear-gradient(180deg, #ff64c8, #a064ff);
-    }
-    .timeline-item {
-      position: relative;
-      padding-bottom: 40px;
-    }
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -46px;
-      top: 5px;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background: #ff64c8;
-      box-shadow: 0 0 20px #ff64c8;
-    }
-    .timeline-date {
-      font-family: 'JetBrains Mono', monospace;
-      color: #ff64c8;
-      font-size: 0.9rem;
-      margin-bottom: 5px;
-    }
-    .timeline-company {
-      font-size: 1.5rem;
-      font-weight: 700;
-    }
-    .timeline-role {
-      color: #aaa;
-      margin-bottom: 10px;
-    }
-    .timeline-achievements {
-      list-style: none;
-      color: #ddd;
-    }
-    .timeline-achievements li {
-      margin-bottom: 8px;
-      display: flex;
-      gap: 10px;
-    }
-    .timeline-achievements li i {
-      color: #a064ff;
-      margin-top: 3px;
-    }
-
-    /* Certification */
-    .cert-card {
-      background: rgba(160,100,255,0.1);
-      border: 1px solid #a064ff;
-      border-radius: 40px;
-      padding: 30px;
-      display: flex;
-      align-items: center;
-      gap: 30px;
-      margin: 40px 0;
-      text-decoration: none;
-      color: white;
-      transition: 0.3s;
-    }
-    .cert-card:hover {
-      border-color: #ff64c8;
-      box-shadow: 0 0 50px #a064ff;
-      transform: translateY(-5px);
-    }
-    .cert-icon {
-      font-size: 4rem;
-    }
-    .cert-details h4 {
-      font-size: 1.6rem;
-      font-weight: 700;
-    }
-    .cert-details p {
-      color: #ccc;
-    }
-
-    /* Contact */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      margin: 60px 0;
-    }
-    .contact-info h2 {
-      font-size: 3rem;
-      font-family: 'Syne', sans-serif;
-      background: linear-gradient(45deg, #ff64c8, #a064ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .availability {
-      background: rgba(255,100,200,0.1);
-      border: 1px solid #ff64c8;
-      border-radius: 60px;
-      padding: 16px 32px;
-      display: inline-flex;
-      align-items: center;
-      gap: 16px;
-      margin: 20px 0;
-    }
-    .dot {
-      width: 12px;
-      height: 12px;
-      background: #4aff7a;
-      border-radius: 50%;
-      box-shadow: 0 0 20px #4aff7a;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } }
-
-    .contact-links {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-    .contact-link {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      background: rgba(30,20,50,0.6);
-      backdrop-filter: blur(4px);
-      border: 1px solid rgba(255,100,200,0.3);
-      border-radius: 60px;
-      padding: 20px 30px;
-      text-decoration: none;
-      color: white;
-      transition: 0.2s;
-    }
-    .contact-link:hover {
-      border-color: #ff64c8;
-      transform: translateX(10px);
-      box-shadow: 0 0 30px #ff64c8;
-    }
-    .contact-icon {
-      background: #a064ff;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-    }
-    .contact-detail {
-      flex: 1;
-    }
-    .contact-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.8rem;
-      color: #aaa;
-    }
-    .contact-value {
-      font-size: 1.2rem;
-      font-weight: 600;
-    }
-    .contact-arrow {
-      color: #ff64c8;
-      font-size: 1.5rem;
-      opacity: 0.6;
-    }
-
-    /* Toast */
-    .toast {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background: #1a1a3a;
-      border-left: 4px solid #ff64c8;
-      padding: 16px 32px;
-      border-radius: 60px;
-      color: white;
-      font-family: 'JetBrains Mono', monospace;
-      box-shadow: 0 0 40px #ff64c8;
-      transform: translateY(100px);
-      opacity: 0;
-      transition: 0.3s;
-      z-index: 9999;
-    }
-    .toast.show {
-      transform: translateY(0);
-      opacity: 1;
-    }
-
-    /* Modal */
-    .modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.9);
-      backdrop-filter: blur(20px);
-      z-index: 2000;
-      align-items: center;
-      justify-content: center;
-    }
-    .modal-content {
-      width: 90%;
-      height: 90%;
-      background: #0b0b1a;
-      border: 2px solid #ff64c8;
-      border-radius: 40px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-    }
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 30px;
-      border-bottom: 1px solid #ff64c8;
-    }
-    .modal-header h3 {
-      font-family: 'Syne', sans-serif;
-    }
-    .close-btn {
-      background: none;
-      border: 1px solid #ff64c8;
-      color: white;
-      padding: 8px 20px;
-      border-radius: 60px;
-      cursor: pointer;
-    }
-    .modal iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    footer {
-      text-align: center;
-      padding: 40px;
-      border-top: 1px solid rgba(255,100,200,0.3);
-      font-family: 'JetBrains Mono', monospace;
-      color: #aaa;
-    }
-    footer a {
-      color: #ff64c8;
-      text-decoration: none;
-    }
-
-    /* Responsive */
-    @media (max-width: 800px) {
-      .featured { grid-template-columns: 1fr; }
-      .contact-grid { grid-template-columns: 1fr; }
-      .nav-links { display: none; }
-      .stats { gap: 30px; justify-content: center; }
-      .stat-item { min-width: 120px; }
-    }
-  </style>
 </head>
+
 <body>
-  <div id="gradient-bg"></div>
-  <div id="particles"></div>
 
-  <!-- Navigation -->
-  <nav>
-    <div class="logo">Adithya.Sharma</div>
-    <div class="nav-links">
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
+<header>
 
-  <main class="container">
-    <!-- Hero -->
-    <section class="hero">
-      <div class="glitch-wrapper">
-        <div class="glitch" data-text="Adithya Sharma">Adithya Sharma</div>
-      </div>
-      <div class="hero-tagline">
-        <span>QA Engineer & Full‑Stack Builder</span> — I craft robust products from concept to deployment. SaaS, web apps, AI tools – you name it, I build it.
-      </div>
-      <div class="cta-buttons">
-        <a href="#projects" class="btn btn-primary">See my work <i class="fas fa-arrow-right"></i></a>
-        <a href="#contact" class="btn btn-outline">Let's talk</a>
-        <a href="https://linkedin.com/in/adithya-sharma-qa-engineer" target="_blank" class="btn btn-outline"><i class="fab fa-linkedin"></i> LinkedIn</a>
-      </div>
-      <div class="stats">
-        <div class="stat-item"><div class="stat-num">4+</div><div class="stat-label">Years in Game QA</div></div>
-        <div class="stat-item"><div class="stat-num">5+</div><div class="stat-label">Products Shipped</div></div>
-        <div class="stat-item"><div class="stat-num">2</div><div class="stat-label">Open Source Tools</div></div>
-        <div class="stat-item"><div class="stat-num">30%</div><div class="stat-label">Bug Reduction</div></div>
-      </div>
-    </section>
+<h1>Adithya Sharma</h1>
 
-    <!-- Projects -->
-    <section id="projects">
-    <section id="projects" class="section">
-  <h2 class="section-title">Projects</h2>
+<p>
+QA Engineer • Automation Learner • AI Builder
+</p>
 
-  <div class="projects-grid">
+</header>
 
-```
-<!-- QA Forge -->
+<section class="section">
+
+<h2>Projects</h2>
+
+<div class="projects-grid">
+
 <div class="project-card">
-  <span class="project-oss"><i class="fas fa-robot"></i> AI Tool</span>
-  <h3 class="project-name">QA Forge</h3>
 
-  <p class="project-desc">
-    AI-powered testing assistant that converts requirements and screenshots
-    into structured test cases instantly. Designed to accelerate QA workflows
-    and reduce manual effort in test design.
-  </p>
+<span><i class="fas fa-robot"></i> AI Tool</span>
 
-  <div class="project-tags">
-    <span class="tag">AI</span>
-    <span class="tag">QA Automation</span>
-    <span class="tag">Testing Tools</span>
-    <span class="tag">Productivity</span>
-  </div>
+<h3 class="project-name">
+QA Forge
+</h3>
 
-  <div class="project-links">
-    <a href="https://github.com/Rayr-06/qa-forge" target="_blank">
-      <i class="fab fa-github"></i> Source
-    </a>
-  </div>
+<p class="project-desc">
+AI powered testing assistant that converts
+requirements and screenshots into structured
+test cases instantly.
+</p>
+
+<div class="project-tags">
+<span class="tag">AI</span>
+<span class="tag">Testing</span>
+<span class="tag">Automation</span>
 </div>
 
+<div class="project-links">
 
-<!-- RAYR Trading Intelligence -->
-<div class="project-card">
-  <span class="project-oss"><i class="fas fa-chart-line"></i> AI Fintech Tool</span>
-  <h3 class="project-name">RAYR Trading Intelligence</h3>
+<a href="https://github.com/Rayr-06/qa-forge" target="_blank">
+<i class="fab fa-github"></i> Source
+</a>
 
-  <p class="project-desc">
-    AI-powered portfolio intelligence dashboard that analyzes mutual funds,
-    market trends, and portfolio allocation. Generates automated quarterly
-    insights and rebalancing suggestions using AI-driven financial analysis.
-  </p>
-
-  <div class="project-tags">
-    <span class="tag">React</span>
-    <span class="tag">Vite</span>
-    <span class="tag">Fintech</span>
-    <span class="tag">AI Analysis</span>
-    <span class="tag">PWA</span>
-  </div>
-
-  <div class="project-links">
-    <a href="https://rayr-06.github.io/rayr-mobile/" target="_blank">
-      <i class="fas fa-play"></i> Live App
-    </a>
-
-    <a href="https://github.com/Rayr-06/rayr-mobile" target="_blank">
-      <i class="fab fa-github"></i> Source
-    </a>
-  </div>
 </div>
 
-
-<!-- RAYR Mobile Testing Framework -->
-<div class="project-card">
-  <span class="project-oss"><i class="fas fa-mobile-alt"></i> Testing Framework</span>
-  <h3 class="project-name">RAYR Mobile Testing Framework</h3>
-
-  <p class="project-desc">
-    Mobile automation framework for validating UI flows, API responses,
-    and performance behavior across gaming platforms including Xbox,
-    PlayStation, and PC environments.
-  </p>
-
-  <div class="project-tags">
-    <span class="tag">Automation</span>
-    <span class="tag">QA</span>
-    <span class="tag">Mobile Testing</span>
-    <span class="tag">Framework</span>
-  </div>
-
-  <div class="project-links">
-    <a href="https://github.com/Rayr-06" target="_blank">
-      <i class="fab fa-github"></i> Source
-    </a>
-  </div>
 </div>
 
-
-<!-- rayr-skills -->
 <div class="project-card">
-  <span class="project-oss"><i class="fas fa-brain"></i> AI Agents</span>
-  <h3 class="project-name">rayr-skills</h3>
 
-  <p class="project-desc">
-    Multi-agent AI toolkit that demonstrates specialized agents for tasks
-    like research, coding assistance, and workflow automation.
-  </p>
+<span><i class="fas fa-chart-line"></i> Fintech AI</span>
 
-  <div class="project-tags">
-    <span class="tag">AI Agents</span>
-    <span class="tag">Automation</span>
-    <span class="tag">Productivity</span>
-  </div>
+<h3 class="project-name">
+RAYR Trading Intelligence
+</h3>
 
-  <div class="project-links">
-    <a href="https://github.com/Rayr-06/rayr-skills" target="_blank">
-      <i class="fab fa-github"></i> Source
-    </a>
-  </div>
+<p class="project-desc">
+AI powered portfolio dashboard that analyzes
+mutual funds, portfolio allocation and market signals.
+</p>
+
+<div class="project-tags">
+<span class="tag">React</span>
+<span class="tag">Vite</span>
+<span class="tag">Fintech</span>
+<span class="tag">PWA</span>
 </div>
-```
 
-  </div>
+<div class="project-links">
+
+<a href="https://rayr-06.github.io/rayr-mobile/" target="_blank">
+<i class="fas fa-play"></i> Live
+</a>
+
+<a href="https://github.com/Rayr-06/rayr-mobile" target="_blank">
+<i class="fab fa-github"></i> Source
+</a>
+
+</div>
+
+</div>
+
+<div class="project-card">
+
+<span><i class="fas fa-mobile-alt"></i> Testing Framework</span>
+
+<h3 class="project-name">
+RAYR Mobile Testing Framework
+</h3>
+
+<p class="project-desc">
+Automation testing framework for validating
+mobile UI flows and API responses across
+gaming platforms.
+</p>
+
+<div class="project-tags">
+<span class="tag">QA</span>
+<span class="tag">Automation</span>
+<span class="tag">Mobile Testing</span>
+</div>
+
+<div class="project-links">
+
+<a href="https://github.com/Rayr-06" target="_blank">
+<i class="fab fa-github"></i> Source
+</a>
+
+</div>
+
+</div>
+
+<div class="project-card">
+
+<span><i class="fas fa-brain"></i> AI Agents</span>
+
+<h3 class="project-name">
+rayr-skills
+</h3>
+
+<p class="project-desc">
+Multi agent AI toolkit demonstrating
+automation, research and coding assistants.
+</p>
+
+<div class="project-tags">
+<span class="tag">AI Agents</span>
+<span class="tag">Automation</span>
+</div>
+
+<div class="project-links">
+
+<a href="https://github.com/Rayr-06/rayr-skills" target="_blank">
+<i class="fab fa-github"></i> Source
+</a>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
-    </section>
+<footer>
 
-    <!-- Experience -->
-    <section id="experience">
-      <div class="section-head">
-        <h2>Where I've shipped quality</h2>
-        <div class="back-text">// TIMELINE</div>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-date">MAY 2022 — PRESENT</div>
-          <div class="timeline-company">Indium Software</div>
-          <div class="timeline-role">Test Engineer, Bangalore</div>
-          <ul class="timeline-achievements">
-            <li><i class="fas fa-bug"></i> 500+ test cases – zero critical launch bugs</li>
-            <li><i class="fas fa-chart-line"></i> 30% reduction in post-launch bugs</li>
-            <li><i class="fas fa-clock"></i> 25% faster resolution via JIRA</li>
-            <li><i class="fas fa-tachometer-alt"></i> 50+ performance bottlenecks identified</li>
-          </ul>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-date">OCT 2020 — MAY 2022</div>
-          <div class="timeline-company">Concentrix</div>
-          <div class="timeline-role">Financial Advisor, Bangalore</div>
-          <ul class="timeline-achievements">
-            <li><i class="fas fa-chart-pie"></i> 50+ clients – analytical skills applied to game analytics</li>
-          </ul>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-date">FEB 2017 — MAY 2020</div>
-          <div class="timeline-company">Yamuna Home Interiors</div>
-          <div class="timeline-role">Accounts Assistant, Bangalore</div>
-          <ul class="timeline-achievements">
-            <li><i class="fas fa-calculator"></i> Meticulous attention to detail</li>
-          </ul>
-        </div>
-      </div>
+© 2026 Adithya Sharma
 
-      <!-- Certification -->
-      <a class="cert-card" href="https://www.langchain.com/langchain-courses" target="_blank">
-        <div class="cert-icon"><i class="fas fa-award"></i></div>
-        <div class="cert-details">
-          <h4>Deep Agents with LangGraph</h4>
-          <p>LangChain · Certified Completion</p>
-          <p style="color:#aaa;">Advanced agentic workflows by Lance Martin & Harrison Chase.</p>
-        </div>
-      </a>
-    </section>
+</footer>
 
-    <!-- Contact -->
-    <section id="contact">
-      <div class="contact-grid">
-        <div class="contact-info">
-          <h2>Ready to build something extraordinary?</h2>
-          <div class="availability">
-            <span class="dot"></span>
-            <span>Open to Senior Roles & Freelance · Bengaluru / Remote</span>
-          </div>
-          <p style="color:#bbb; margin-top: 20px;">₹10–14 LPA · Response within 24h</p>
-        </div>
-        <div class="contact-links">
-          <a class="contact-link" href="#" id="emailLink">
-            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-            <div class="contact-detail">
-              <div class="contact-label">Email</div>
-              <div class="contact-value">sharmadai@hotmail.com</div>
-            </div>
-            <div class="contact-arrow"><i class="fas fa-arrow-right"></i></div>
-          </a>
-          <a class="contact-link" href="https://linkedin.com/in/adithya-sharma-qa-engineer" target="_blank">
-            <div class="contact-icon"><i class="fab fa-linkedin-in"></i></div>
-            <div class="contact-detail">
-              <div class="contact-label">LinkedIn</div>
-              <div class="contact-value">adithya-sharma-qa-engineer</div>
-            </div>
-            <div class="contact-arrow"><i class="fas fa-arrow-right"></i></div>
-          </a>
-          <a class="contact-link" href="https://github.com/Rayr-06" target="_blank">
-            <div class="contact-icon"><i class="fab fa-github"></i></div>
-            <div class="contact-detail">
-              <div class="contact-label">GitHub</div>
-              <div class="contact-value">/Rayr-06</div>
-            </div>
-            <div class="contact-arrow"><i class="fas fa-arrow-right"></i></div>
-          </a>
-          <a class="contact-link" href="tel:+919738558416">
-            <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
-            <div class="contact-detail">
-              <div class="contact-label">Phone</div>
-              <div class="contact-value">+91 97385 58416</div>
-            </div>
-            <div class="contact-arrow"><i class="fas fa-arrow-right"></i></div>
-          </a>
-          <a class="contact-link" href="https://rayr-06.github.io/qa-forge" target="_blank">
-            <div class="contact-icon"><i class="fas fa-bolt"></i></div>
-            <div class="contact-detail">
-              <div class="contact-label">QA Forge Demo</div>
-              <div class="contact-value">live preview</div>
-            </div>
-            <div class="contact-arrow"><i class="fas fa-arrow-right"></i></div>
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>© 2026 Adithya Sharma · Built by QA, for the world · <a href="https://github.com/Rayr-06">GitHub</a> · Bengaluru</p>
-  </footer>
-
-  <!-- Toast -->
-  <div class="toast" id="toast">📋 Email copied to clipboard!</div>
-
-  <!-- Modal for demo -->
-  <div class="modal" id="demoModal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3>QA Forge · Live Demo</h3>
-        <button class="close-btn" onclick="closeDemo()">✕ Close</button>
-      </div>
-      <iframe id="demoFrame" src="" title="QA Forge Demo"></iframe>
-    </div>
-  </div>
-
-  <script>
-    // Particle background
-    function createParticles() {
-      const container = document.getElementById('particles');
-      for (let i = 0; i < 60; i++) {
-        const p = document.createElement('div');
-        p.className = 'particle';
-        const size = Math.random() * 10 + 2;
-        p.style.width = size + 'px';
-        p.style.height = size + 'px';
-        p.style.left = Math.random() * 100 + '%';
-        p.style.animationDuration = Math.random() * 15 + 5 + 's';
-        p.style.animationDelay = Math.random() * 5 + 's';
-        p.style.background = `rgba(${Math.floor(100+Math.random()*155)}, ${Math.floor(50+Math.random()*150)}, 255, 0.2)`;
-        container.appendChild(p);
-      }
-    }
-    createParticles();
-
-    // 3D tilt effect on cards
-    const cards = document.querySelectorAll('.project-card');
-    cards.forEach(card => {
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        const rotateX = ((y - centerY) / centerY) * 5;
-        const rotateY = ((centerX - x) / centerX) * 5;
-        card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
-      });
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) translateY(0)';
-      });
-    });
-
-    // Modal functions
-    window.openDemo = function() {
-      const modal = document.getElementById('demoModal');
-      const frame = document.getElementById('demoFrame');
-      frame.src = 'https://rayr-06.github.io/qa-forge';
-      modal.style.display = 'flex';
-      document.body.style.overflow = 'hidden';
-    };
-    window.closeDemo = function() {
-      const modal = document.getElementById('demoModal');
-      const frame = document.getElementById('demoFrame');
-      modal.style.display = 'none';
-      frame.src = '';
-      document.body.style.overflow = '';
-    };
-
-    // Close modal on outside click
-    document.getElementById('demoModal').addEventListener('click', function(e) {
-      if (e.target === this) closeDemo();
-    });
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDemo(); });
-
-    // Toast notification
-    function showToast(msg) {
-      const toast = document.getElementById('toast');
-      toast.textContent = msg;
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 3000);
-    }
-
-    // Email link – copy and open mail client
-    document.getElementById('emailLink').addEventListener('click', function(e) {
-      e.preventDefault();
-      navigator.clipboard.writeText('sharmadai@hotmail.com').then(() => {
-        showToast('📋 Email copied! Opening mail client...');
-      }).catch(() => {
-        showToast('Opening mail client...');
-      });
-      setTimeout(() => window.location.href = 'mailto:sharmadai@hotmail.com', 500);
-    });
-
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        const href = this.getAttribute('href');
-        if (href === '#') return;
-        e.preventDefault();
-        const target = document.querySelector(href);
-        if (target) target.scrollIntoView({ behavior: 'smooth' });
-      });
-    });
-
-    // Fade-up on scroll
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = 1;
-        }
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.project-card, .skill-group, .timeline-item, .cert-card, .beyond-card').forEach(el => {
-      el.style.opacity = 0;
-      el.style.transition = 'opacity 0.6s';
-      observer.observe(el);
-    });
-  </script>
-  <!-- Cloudflare email decoder (optional, keep for compatibility) -->
-  <script src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 </body>
 </html>
