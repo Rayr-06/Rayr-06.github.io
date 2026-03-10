@@ -717,10 +717,13 @@
       text-decoration: none;
     }
 
+    /* Responsive */
     @media (max-width: 800px) {
       .featured { grid-template-columns: 1fr; }
       .contact-grid { grid-template-columns: 1fr; }
       .nav-links { display: none; }
+      .stats { gap: 30px; justify-content: center; }
+      .stat-item { min-width: 120px; }
     }
   </style>
 </head>
@@ -746,7 +749,7 @@
         <div class="glitch" data-text="Adithya Sharma">Adithya Sharma</div>
       </div>
       <div class="hero-tagline">
-        <span>QA Engineer & AI Toolmaker</span> — I build tools that make testing 10x faster.
+        <span>QA Engineer & AI Toolmaker</span> — I build tools that make everyone's life 10x faster.
       </div>
       <div class="cta-buttons">
         <a href="#projects" class="btn btn-primary">See my work <i class="fas fa-arrow-right"></i></a>
@@ -754,7 +757,7 @@
         <a href="https://linkedin.com/in/adithya-sharma-qa-engineer" target="_blank" class="btn btn-outline"><i class="fab fa-linkedin"></i> LinkedIn</a>
       </div>
       <div class="stats">
-        <div class="stat-item"><div class="stat-num">3+</div><div class="stat-label">Years in QA</div></div>
+        <div class="stat-item"><div class="stat-num">4+</div><div class="stat-label">Years in QA</div></div>
         <div class="stat-item"><div class="stat-num">500+</div><div class="stat-label">Test cases</div></div>
         <div class="stat-item"><div class="stat-num">2</div><div class="stat-label">Open source tools</div></div>
         <div class="stat-item"><div class="stat-num">30%</div><div class="stat-label">Bug reduction</div></div>
@@ -926,7 +929,7 @@
             <div class="contact-icon"><i class="fas fa-envelope"></i></div>
             <div class="contact-detail">
               <div class="contact-label">Email</div>
-              <div class="contact-value">sharmaadithya1995@gmail.com</div>
+              <div class="contact-value">sharmadai@hotmail.com</div>
             </div>
             <div class="contact-arrow"><i class="fas fa-arrow-right"></i></div>
           </a>
@@ -1023,22 +1026,20 @@
     });
 
     // Modal functions
-    function openDemo() {
+    window.openDemo = function() {
       const modal = document.getElementById('demoModal');
       const frame = document.getElementById('demoFrame');
       frame.src = 'https://rayr-06.github.io/qa-forge';
       modal.style.display = 'flex';
       document.body.style.overflow = 'hidden';
-    }
-    function closeDemo() {
+    };
+    window.closeDemo = function() {
       const modal = document.getElementById('demoModal');
       const frame = document.getElementById('demoFrame');
       modal.style.display = 'none';
       frame.src = '';
       document.body.style.overflow = '';
-    }
-    window.openDemo = openDemo;
-    window.closeDemo = closeDemo;
+    };
 
     // Close modal on outside click
     document.getElementById('demoModal').addEventListener('click', function(e) {
@@ -1046,19 +1047,23 @@
     });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDemo(); });
 
-    // Toast & copy email
+    // Toast notification
     function showToast(msg) {
-      const t = document.getElementById('toast');
-      t.textContent = msg;
-      t.classList.add('show');
-      setTimeout(() => t.classList.remove('show'), 3000);
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3000);
     }
+
+    // Email link – copy and open mail client
     document.getElementById('emailLink').addEventListener('click', function(e) {
       e.preventDefault();
-      navigator.clipboard.writeText('sharmaadithya1995@gmail.com').then(() => {
+      navigator.clipboard.writeText('sharmadai@hotmail.com').then(() => {
         showToast('📋 Email copied! Opening mail client...');
-      }).catch(() => showToast('Opening mail client...'));
-      setTimeout(() => window.location.href = 'mailto:sharmaadithya1995@gmail.com', 500);
+      }).catch(() => {
+        showToast('Opening mail client...');
+      });
+      setTimeout(() => window.location.href = 'mailto:sharmadai@hotmail.com', 500);
     });
 
     // Smooth scroll for anchor links
@@ -1072,12 +1077,15 @@
       });
     });
 
-    // Fade-up on scroll (simple)
+    // Fade-up on scroll
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) e.target.style.opacity = 1;
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = 1;
+        }
       });
     }, { threshold: 0.1 });
+
     document.querySelectorAll('.project-card, .skill-group, .timeline-item, .cert-card').forEach(el => {
       el.style.opacity = 0;
       el.style.transition = 'opacity 0.6s';
