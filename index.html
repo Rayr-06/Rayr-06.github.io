@@ -1,245 +1,209 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adithya Sharma | Portfolio</title>
 
-<title>Adithya Sharma | QA Engineer</title>
-
-<link rel="stylesheet" href="style.css">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 
 body{
-font-family: Arial, sans-serif;
 margin:0;
-background:#0f172a;
-color:#fff;
+font-family:Inter, sans-serif;
+background:#12071f;
+color:white;
 }
 
-header{
-padding:40px;
-text-align:center;
-background:#020617;
+.container{
+width:90%;
+max-width:1200px;
+margin:auto;
+padding:60px 0;
 }
 
-header h1{
-font-size:42px;
-margin:0;
-}
-
-header p{
-color:#94a3b8;
-}
-
-.section{
-padding:60px 10%;
-}
-
-.section h2{
-font-size:32px;
-margin-bottom:30px;
+h2{
+font-size:40px;
+margin-bottom:40px;
 }
 
 .projects-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:25px;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:40px;
 }
 
 .project-card{
-background:#020617;
-padding:25px;
-border-radius:12px;
-border:1px solid #1e293b;
+background:#1c0f33;
+padding:40px;
+border-radius:20px;
+border:1px solid rgba(255,255,255,0.1);
 transition:0.3s;
 }
 
 .project-card:hover{
-transform:translateY(-5px);
-border-color:#38bdf8;
+transform:translateY(-6px);
+box-shadow:0 10px 30px rgba(0,0,0,0.4);
 }
 
-.project-name{
-font-size:20px;
-margin:10px 0;
+.project-badge{
+display:inline-block;
+padding:6px 14px;
+border-radius:20px;
+background:#3b1b63;
+font-size:12px;
+margin-bottom:20px;
+}
+
+.project-title{
+font-size:32px;
+font-weight:700;
+margin-bottom:20px;
+line-height:1.2;
 }
 
 .project-desc{
-color:#94a3b8;
-font-size:14px;
+color:#cfc3ff;
+font-size:15px;
+line-height:1.6;
+margin-bottom:25px;
 }
 
-.project-tags{
-margin-top:15px;
+.tags{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin-bottom:25px;
 }
 
 .tag{
-background:#1e293b;
-padding:6px 10px;
-border-radius:6px;
+background:#2d1550;
+padding:6px 14px;
+border-radius:20px;
 font-size:12px;
-margin-right:5px;
 }
 
-.project-links{
-margin-top:20px;
+.links{
+display:flex;
+gap:15px;
 }
 
-.project-links a{
+.btn{
+display:inline-flex;
+align-items:center;
+gap:8px;
+padding:10px 16px;
+border-radius:20px;
 text-decoration:none;
-color:#38bdf8;
-margin-right:15px;
+color:white;
+background:#2d1550;
+font-size:14px;
+transition:0.2s;
 }
 
-footer{
+.btn:hover{
+background:#4a1f88;
+}
+
+header{
+padding:60px 0;
 text-align:center;
-padding:30px;
-color:#94a3b8;
+}
+
+header h1{
+font-size:50px;
+margin-bottom:10px;
+}
+
+header p{
+color:#cfc3ff;
 }
 
 </style>
-
 </head>
 
 <body>
 
 <header>
-
 <h1>Adithya Sharma</h1>
-
-<p>
-QA Engineer • Automation Learner • AI Builder
-</p>
-
+<p>QA Engineer | AI Builder | Automation Enthusiast</p>
 </header>
 
-<section class="section">
+<div class="container">
 
 <h2>Projects</h2>
 
 <div class="projects-grid">
 
+<!-- QA Forge -->
 <div class="project-card">
 
-<span><i class="fas fa-robot"></i> AI Tool</span>
+<span class="project-badge">
+<i class="fa-solid fa-robot"></i> AI Tool
+</span>
 
-<h3 class="project-name">
+<div class="project-title">
 QA Forge
-</h3>
-
-<p class="project-desc">
-AI powered testing assistant that converts
-requirements and screenshots into structured
-test cases instantly.
-</p>
-
-<div class="project-tags">
-<span class="tag">AI</span>
-<span class="tag">Testing</span>
-<span class="tag">Automation</span>
 </div>
 
-<div class="project-links">
+<div class="project-desc">
+AI-powered testing assistant that converts requirements and screenshots into
+structured test cases instantly. Designed to accelerate QA workflows and
+reduce manual effort in test design.
+</div>
 
-<a href="https://github.com/Rayr-06/qa-forge" target="_blank">
-<i class="fab fa-github"></i> Source
+<div class="tags">
+<span class="tag">AI</span>
+<span class="tag">QA Automation</span>
+<span class="tag">Testing Tools</span>
+<span class="tag">Productivity</span>
+</div>
+
+<div class="links">
+
+<a class="btn" href="https://github.com/Rayr-06/RAYR-Forge" target="_blank">
+<i class="fa-brands fa-github"></i> Source
 </a>
 
 </div>
 
 </div>
 
+<!-- RAYR Trading Intelligence -->
 <div class="project-card">
 
-<span><i class="fas fa-chart-line"></i> Fintech AI</span>
+<span class="project-badge">
+<i class="fa-solid fa-chart-line"></i> AI Fintech Tool
+</span>
 
-<h3 class="project-name">
+<div class="project-title">
 RAYR Trading Intelligence
-</h3>
+</div>
 
-<p class="project-desc">
-AI powered portfolio dashboard that analyzes
-mutual funds, portfolio allocation and market signals.
-</p>
+<div class="project-desc">
+AI-powered portfolio intelligence dashboard that analyzes mutual funds,
+market trends, and portfolio allocation. Generates automated quarterly
+insights and rebalancing suggestions using AI-driven financial analysis.
+</div>
 
-<div class="project-tags">
+<div class="tags">
 <span class="tag">React</span>
 <span class="tag">Vite</span>
 <span class="tag">Fintech</span>
+<span class="tag">AI Analysis</span>
 <span class="tag">PWA</span>
 </div>
 
-<div class="project-links">
+<div class="links">
 
-<a href="https://rayr-06.github.io/rayr-mobile/" target="_blank">
-<i class="fas fa-play"></i> Live
+<a class="btn" href="https://rayr-06.github.io/rayr-mobile" target="_blank">
+<i class="fa-solid fa-play"></i> Live App
 </a>
 
-<a href="https://github.com/Rayr-06/rayr-mobile" target="_blank">
-<i class="fab fa-github"></i> Source
-</a>
-
-</div>
-
-</div>
-
-<div class="project-card">
-
-<span><i class="fas fa-mobile-alt"></i> Testing Framework</span>
-
-<h3 class="project-name">
-RAYR Mobile Testing Framework
-</h3>
-
-<p class="project-desc">
-Automation testing framework for validating
-mobile UI flows and API responses across
-gaming platforms.
-</p>
-
-<div class="project-tags">
-<span class="tag">QA</span>
-<span class="tag">Automation</span>
-<span class="tag">Mobile Testing</span>
-</div>
-
-<div class="project-links">
-
-<a href="https://github.com/Rayr-06" target="_blank">
-<i class="fab fa-github"></i> Source
-</a>
-
-</div>
-
-</div>
-
-<div class="project-card">
-
-<span><i class="fas fa-brain"></i> AI Agents</span>
-
-<h3 class="project-name">
-rayr-skills
-</h3>
-
-<p class="project-desc">
-Multi agent AI toolkit demonstrating
-automation, research and coding assistants.
-</p>
-
-<div class="project-tags">
-<span class="tag">AI Agents</span>
-<span class="tag">Automation</span>
-</div>
-
-<div class="project-links">
-
-<a href="https://github.com/Rayr-06/rayr-skills" target="_blank">
-<i class="fab fa-github"></i> Source
+<a class="btn" href="https://github.com/Rayr-06/rayr-mobile" target="_blank">
+<i class="fa-brands fa-github"></i> Source
 </a>
 
 </div>
@@ -247,14 +211,7 @@ automation, research and coding assistants.
 </div>
 
 </div>
-
-</section>
-
-<footer>
-
-© 2026 Adithya Sharma
-
-</footer>
+</div>
 
 </body>
 </html>
