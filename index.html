@@ -4,9 +4,9 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Adithya Sharma — AI Product Engineer</title>
-<meta name="description" content="AI Product Engineer. Intelligent fintech systems, LLM-powered tools, vision-based automation. 6.5+ years domain expertise, 5 live products."/>
+<meta name="description" content="AI Product Engineer. Intelligent fintech systems, LLM-powered tools, and quantitative trading apps. Senior QA background in AAA gaming. 4 live products."/>
 <meta property="og:title" content="Adithya Sharma — AI Product Engineer"/>
-<meta property="og:description" content="Bloomberg-grade quant tools, AI portfolio intelligence, LLM-powered QA automation — all live, all real."/>
+<meta property="og:description" content="Bloomberg-grade quant tools, AI portfolio intelligence, LLM-powered test automation — all live, all built independently."/>
 <meta property="og:url" content="https://rayr-06.github.io/"/>
 <meta property="og:type" content="website"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -17,6 +17,7 @@
 --gold:#C8963E;--gd:rgba(200,150,62,.09);--cream:#E6DBBE;
 --tx:#C8C4B0;--ts:#6E7A90;--td:#2E3A50;
 --green:#20B956;--teal:#0DA09A;--blue:#3B72F6;--amber:#E89B2A;--red:#E54444;
+--dev:#9B72F6;
 --serif:'Playfair Display',Georgia,serif;--mono:'DM Mono',monospace;--sans:'DM Sans',sans-serif}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -41,12 +42,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:62px;display:flex;ali
 .hi{max-width:860px;position:relative;z-index:1}
 .hk{font-family:var(--mono);font-size:10.5px;color:var(--gold);letter-spacing:.2em;text-transform:uppercase;margin-bottom:22px;display:flex;align-items:center;gap:10px}
 .hk::before{content:'';width:22px;height:1px;background:var(--gold);display:block}
-.pd{width:6px;height:6px;border-radius:50%;background:var(--green);display:inline-block;animation:blink 2s ease-in-out infinite;margin-right:3px}
+.pdot{width:6px;height:6px;border-radius:50%;background:var(--green);display:inline-block;animation:blink 2s ease-in-out infinite;margin-right:3px}
 @keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.8)}}
 h1{font-family:var(--serif);font-size:clamp(50px,8vw,90px);font-weight:900;line-height:.93;letter-spacing:-.03em;color:var(--cream);margin-bottom:6px}
 h1 em{font-style:italic;color:var(--gold)}
-.hr{font-family:var(--serif);font-size:clamp(17px,2.6vw,25px);font-weight:400;font-style:italic;color:var(--ts);margin-bottom:28px}
-.hd{font-size:15.5px;color:var(--ts);max-width:540px;line-height:1.8;margin-bottom:36px}
+.hr2{font-family:var(--serif);font-size:clamp(17px,2.6vw,25px);font-weight:400;font-style:italic;color:var(--ts);margin-bottom:28px}
+.hd{font-size:15.5px;color:var(--ts);max-width:560px;line-height:1.8;margin-bottom:36px}
 .hd strong{color:var(--cream);font-weight:500}
 .btns{display:flex;gap:10px;flex-wrap:wrap}
 .bp{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.07em;color:#07090D;background:var(--gold);border:none;padding:12px 26px;border-radius:3px;cursor:pointer;text-decoration:none;transition:opacity .18s,transform .12s;display:inline-flex;align-items:center;gap:7px}
@@ -60,7 +61,7 @@ section{padding:96px clamp(20px,5vw,80px);position:relative;z-index:1}
 .sk{font-family:var(--mono);font-size:10px;color:var(--gold);letter-spacing:.2em;text-transform:uppercase;margin-bottom:7px;display:flex;align-items:center;gap:9px}
 .sk::before{content:'';width:16px;height:1px;background:var(--gold);display:block}
 h2{font-family:var(--serif);font-size:clamp(34px,4.5vw,52px);font-weight:700;line-height:1.05;letter-spacing:-.02em;color:var(--cream);margin-bottom:14px}
-.ss{font-size:14.5px;color:var(--ts);max-width:480px;line-height:1.75;margin-bottom:52px}
+.ss{font-size:14.5px;color:var(--ts);max-width:520px;line-height:1.75;margin-bottom:52px}
 #about{background:var(--surface);border-top:1px solid var(--border)}
 .ag{display:grid;grid-template-columns:1.2fr 1fr;gap:52px;align-items:start}
 @media(max-width:760px){.ag{grid-template-columns:1fr}}
@@ -71,7 +72,7 @@ h2{font-family:var(--serif);font-size:clamp(34px,4.5vw,52px);font-weight:700;lin
 .qfr{display:flex;padding:11px 16px;border-bottom:1px solid var(--border);font-size:12.5px;gap:12px}
 .qfr:last-child{border-bottom:none}
 .qfk{color:var(--td);font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;width:96px;flex-shrink:0;padding-top:1px}
-.qfv{color:var(--tx);font-weight:400}
+.qfv{color:var(--tx)}
 .qfv a{color:var(--gold);text-decoration:none}
 .pr{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
 .pill{font-family:var(--mono);font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;padding:3px 9px;border-radius:2px;background:var(--border);color:var(--ts);border:1px solid var(--bm)}
@@ -90,8 +91,9 @@ h2{font-family:var(--serif);font-size:clamp(34px,4.5vw,52px);font-weight:700;lin
 .tpw{background:rgba(59,114,246,.08);color:var(--blue);border:1px solid rgba(59,114,246,.18)}
 .tpy{background:rgba(110,122,144,.08);color:var(--ts);border:1px solid var(--bm)}
 .tqa{background:rgba(232,155,42,.08);color:var(--amber);border:1px solid rgba(232,155,42,.2)}
+.tdev{background:rgba(155,114,246,.08);color:var(--dev);border:1px solid rgba(155,114,246,.22)}
 .pt{font-family:var(--serif);font-size:23px;font-weight:700;color:var(--cream);line-height:1.1;margin-bottom:7px;letter-spacing:-.01em}
-.pl{font-size:12.5px;font-weight:300;color:var(--ts);margin-bottom:14px;font-style:italic}
+.pln{font-size:12.5px;font-weight:300;color:var(--ts);margin-bottom:14px;font-style:italic}
 .pd2{font-size:13px;color:var(--ts);line-height:1.8;margin-bottom:18px;flex:1}
 .pd2 strong{color:var(--cream);font-weight:500}
 .pf{list-style:none;margin-bottom:20px}
@@ -121,7 +123,10 @@ h2{font-family:var(--serif);font-size:clamp(34px,4.5vw,52px);font-weight:700;lin
 .ski2:last-child{border-bottom:none}
 .sdd{width:4px;height:4px;border-radius:50%;flex-shrink:0}
 #experience{border-top:1px solid var(--border)}
-.ec{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:32px;margin-bottom:14px}
+.etwo{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+@media(max-width:760px){.etwo{grid-template-columns:1fr}}
+.ec{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:32px}
+.ec.full{margin-bottom:14px}
 .eh{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:18px;flex-wrap:wrap}
 .eco{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--cream)}
 .ep{font-family:var(--mono);font-size:10.5px;color:var(--gold);border:1px solid rgba(200,150,62,.25);padding:4px 11px;border-radius:2px;white-space:nowrap}
@@ -147,7 +152,7 @@ h2{font-family:var(--serif);font-size:clamp(34px,4.5vw,52px);font-weight:700;lin
 .cc:hover{border-color:rgba(200,150,62,.35);background:#13192A}
 .ci{width:40px;height:40px;border-radius:7px;background:var(--gd);border:1px solid rgba(200,150,62,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px}
 .cl{font-family:var(--mono);font-size:9.5px;color:var(--td);letter-spacing:.1em;text-transform:uppercase;margin-bottom:3px}
-.cv{font-size:13px;color:var(--tx);font-weight:400}
+.cv{font-size:13px;color:var(--tx)}
 .ca{background:rgba(32,185,86,.07);border:1px solid rgba(32,185,86,.18);border-radius:9px;padding:22px 28px;margin-top:36px;display:flex;gap:12px;align-items:flex-start}
 .cad{width:8px;height:8px;border-radius:50%;background:var(--green);flex-shrink:0;margin-top:4px;animation:blink 2s ease-in-out infinite}
 .cat{font-family:var(--mono);font-size:11px;color:var(--green);letter-spacing:.07em;text-transform:uppercase;margin-bottom:6px}
@@ -169,7 +174,6 @@ footer{padding:28px clamp(20px,5vw,80px);border-top:1px solid var(--border);disp
 </head>
 <body>
 <div class="gl"></div>
-
 <nav>
   <a class="logo" href="#">AS_</a>
   <ul class="nl">
@@ -180,77 +184,76 @@ footer{padding:28px clamp(20px,5vw,80px);border-top:1px solid var(--border);disp
     <li><a href="#contact" class="nhire">Hire Me</a></li>
   </ul>
 </nav>
-
 <section id="hero">
   <div class="hg1"></div><div class="hg2"></div>
   <div class="hi">
-    <div class="hk fu"><span class="pd"></span>Open to new opportunities</div>
+    <div class="hk fu"><span class="pdot"></span>Open to new opportunities · Bengaluru</div>
     <h1 class="fu1">Adithya<br/><em>Sharma</em></h1>
-    <p class="hr fu1">AI Product Engineer</p>
-    <p class="hd fu2">I build <strong>real AI-powered products</strong> — a Bloomberg-grade quant trading PWA, an Indian portfolio intelligence engine with live market data and Monte Carlo simulation, an LLM-powered test automation platform, and a vision-based game testing system. <strong>6.5+ years of domain expertise. Every project is live.</strong></p>
+    <p class="hr2 fu1">AI Product Engineer &amp; Senior QA Specialist</p>
+    <p class="hd fu2">I independently build <strong>AI-powered products</strong> — a portfolio intelligence engine for Indian retail investors with Monte Carlo simulation and live AMFI data, a 12-algorithm quant trading PWA, and an LLM-powered test generation platform. By day, I bring <strong>3+ years of AAA gaming QA expertise</strong> at Indium Software. The combination of domain depth and independent building is what makes the work real.</p>
     <div class="btns fu3">
       <a href="#projects" class="bp">See My Work ↓</a>
       <a href="https://github.com/Rayr-06" target="_blank" rel="noreferrer" class="bs">GitHub →</a>
       <a href="#contact" class="bs">Get In Touch</a>
     </div>
     <div class="hs fu3">
-      <div><div class="sn" id="c1">6.5+</div><div class="sl">Years in industry</div></div>
-      <div><div class="sn" id="c2">5</div><div class="sl">Live products shipped</div></div>
-      <div><div class="sn" id="c3">12</div><div class="sl">Quant algorithms</div></div>
-      <div><div class="sn" id="c4">3</div><div class="sl">AI platforms built</div></div>
+      <div><div class="sn">3+</div><div class="sl">Years at Indium</div></div>
+      <div><div class="sn">7+</div><div class="sl">Years total experience</div></div>
+      <div><div class="sn">4</div><div class="sl">Live products built</div></div>
+      <div><div class="sn">12</div><div class="sl">Quant algorithms</div></div>
     </div>
   </div>
 </section>
 
 <section id="about">
   <div class="sk">01 · Who I Am</div>
-  <h2>Built from the<br/><em>inside out</em></h2>
+  <h2>Two skills,<br/><em>one profile</em></h2>
   <div class="ag">
     <div class="at">
-      <p>Most developers build for requirements they read in a doc. I spent <strong>6.5 years inside real software products</strong> — testing gaming environments across Xbox, PlayStation and PC — which means I understand failure modes, edge cases, and quality problems from first principles. That is a different kind of knowledge.</p>
-      <p>At some point I realised the tools I needed to do my job well <em>didn't exist</em>. So I built them. First a QA automation platform powered by LLM reasoning. Then a quant trading PWA running 12 algorithms simultaneously across global markets. Then an AI portfolio intelligence engine for Indian retail investors with live AMFI data, Monte Carlo simulation, and real XIRR calculation.</p>
-      <p>Every project I've shipped solves a <strong>real problem I personally encountered</strong>. That's the only kind of product worth building — and the only kind of engineer worth hiring.</p>
-      <p>I work across the full stack: <strong>React 18, Python, Flask, and the complete LLM integration layer</strong> (Claude AI, Groq Llama 3.3). I understand production deployment, CI/CD pipelines via GitHub Actions, and what it takes to build something that runs in the real world under real users.</p>
+      <p>My career has two tracks that reinforce each other. By day, I am a <strong>Senior QA Engineer at Indium Software</strong> — 3+ years testing AAA gaming titles across Xbox, PlayStation, and PC. That means I understand what it costs when software fails in production, and I understand complex interactive systems at a deep level.</p>
+      <p>Outside of work, I teach myself to build. Not tutorials, not copy-paste — <em>real products that solve real problems</em>. RAYR Fin came from frustration that every Indian MF app shows estimated returns, not real XIRR. RAYR Mobile came from needing a quant analysis tool that doesn't cost ₹10,000/month. QA Forge came from watching test case writing consume 40% of QA time that could be spent on actual thinking.</p>
+      <p>Every project I ship is <strong>publicly accessible, technically honest, and built to production standards</strong>. Live AMFI data. Real Newton-Raphson XIRR. 1,000-path Monte Carlo simulation. GitHub Actions CI/CD. Not demos — products.</p>
+      <p>The stack is <strong>React 18, Python, and the LLM integration layer</strong> (Claude AI API, Groq Llama 3.3). I'm looking for a team where I can do this full-time.</p>
     </div>
     <div>
       <div class="qf">
         <div class="qfr"><span class="qfk">Location</span><span class="qfv">Bengaluru, India</span></div>
-        <div class="qfr"><span class="qfk">Current</span><span class="qfv">Indium Software · Test Engineer · May 2022–Present</span></div>
-        <div class="qfr"><span class="qfk">Domain</span><span class="qfv">Gaming QA · Fintech · AI Tooling</span></div>
+        <div class="qfr"><span class="qfk">Day Job</span><span class="qfv">Senior QA Engineer · Indium Software · Gaming</span></div>
+        <div class="qfr"><span class="qfk">Building</span><span class="qfv">AI fintech tools, LLM platforms (independent)</span></div>
         <div class="qfr"><span class="qfk">Stack</span><span class="qfv">React · Python · Claude AI · Groq · Vite · Flask</span></div>
         <div class="qfr"><span class="qfk">GitHub</span><span class="qfv"><a href="https://github.com/Rayr-06" target="_blank" rel="noreferrer">github.com/Rayr-06</a></span></div>
         <div class="qfr"><span class="qfk">LinkedIn</span><span class="qfv"><a href="https://linkedin.com/in/adithya-sharma-qa-engineer" target="_blank" rel="noreferrer">adithya-sharma-qa-engineer</a></span></div>
       </div>
       <div class="pr">
-        <span class="pill">AI Product Engineering</span><span class="pill">React 18 · Vite</span>
-        <span class="pill">Python · Flask</span><span class="pill">LLM Integration</span>
-        <span class="pill">PWA Development</span><span class="pill">Fintech Systems</span>
-        <span class="pill">Vision-Based Testing</span><span class="pill">CI/CD · GitHub Actions</span>
+        <span class="pill">React 18 · Vite</span><span class="pill">Python · Flask</span>
+        <span class="pill">LLM Integration</span><span class="pill">Groq · Claude AI</span>
+        <span class="pill">PWA Development</span><span class="pill">Fintech · Quant</span>
+        <span class="pill">AAA Gaming QA</span><span class="pill">CI/CD · GitHub Actions</span>
       </div>
     </div>
   </div>
 </section>
 
 <section id="projects">
-  <div class="sk">02 · What I've Built</div>
-  <h2>Live products,<br/><em>real problems solved</em></h2>
-  <p class="ss">Every project below is deployed, publicly accessible, and solves a problem I personally experienced. No mockups. No concept work. Real code, running in production.</p>
+  <div class="sk">02 · Independent Projects</div>
+  <h2>Built outside work,<br/><em>production quality</em></h2>
+  <p class="ss">All projects below were built independently in my own time. Every live project has a real URL you can open right now. The code is on GitHub.</p>
 
   <div class="pg">
-
     <!-- FEATURED: RAYR Fin -->
     <div class="pc feat">
       <div>
         <div class="pm"><span class="tag tlv">Live</span><span class="tag tfn">Fintech · India</span><span class="tag tai">AI · LLM</span><span class="tag tpw">React · Vite</span></div>
-        <div class="pt">RAYR — Portfolio Intelligence Engine</div>
-        <div class="pl">Bloomberg-grade AI analysis for Indian retail investors. Free, private, zero backend.</div>
-        <p class="pd2">The most technically complex project I've shipped. A <strong>privacy-first AI fintech platform</strong> — everything runs in the browser, nothing leaves your device. Live AMFI fund NAV data, <strong>real XIRR calculation</strong> via Newton-Raphson, Monte Carlo simulation with 1,000 paths, and Dr. RAYR — an AI advisor powered by Groq Llama 3.3 with full portfolio context injected. Health scoring, sector exposure analysis, stress-testing, and expense drag calculation.</p>
+        <div class="pt">RAYR Fin — Portfolio Intelligence Engine</div>
+        <div class="pln">Real AI analysis for Indian retail investors. Zero backend. Fully private.</div>
+        <p class="pd2">Built from scratch after noticing every Indian mutual fund app shows <strong>estimated returns</strong>, not real ones. RAYR Fin calculates genuine XIRR from actual purchase data using Newton-Raphson, runs 1,000-path Monte Carlo simulation in the browser, pulls live NAV from AMFI with no API key, and gives Dr. RAYR — an AI advisor powered by Groq Llama 3.3 — your complete portfolio context to answer questions with real numbers.</p>
         <ul class="pf">
-          <li>Real XIRR engine — same method used by Groww and Zerodha</li>
-          <li>Monte Carlo: 1,000 paths, 5 percentile bands, probability of ₹1Cr / ₹2Cr</li>
-          <li>Live NAV from AMFI API — no key required, no cost</li>
-          <li>Dr. RAYR: Groq Llama 3.3 with full portfolio context in system prompt</li>
-          <li>GitHub Actions CI/CD — every push auto-deploys to GitHub Pages</li>
+          <li>Real XIRR engine via Newton-Raphson — matches Groww and Zerodha methodology</li>
+          <li>Monte Carlo: 1,000 paths, p10/p25/p50/p75/p90 bands, goal probability</li>
+          <li>Live NAV from AMFI API — no API key, no cost, no login required</li>
+          <li>Dr. RAYR: Groq Llama 3.3 with full portfolio injected into system prompt</li>
+          <li>Health score, sector exposure, stress testing, expense drag calculation</li>
+          <li>GitHub Actions CI/CD — every commit auto-deploys to GitHub Pages</li>
         </ul>
         <div class="plk">
           <a href="https://rayr-06.github.io/rayr-Fin/" target="_blank" rel="noreferrer" class="lb ll">↗ Live Demo</a>
@@ -268,22 +271,22 @@ footer{padding:28px clamp(20px,5vw,80px);border-top:1px solid var(--border);disp
         </div>
         <div style="background:var(--gd);border:1px solid rgba(200,150,62,.18);border-radius:8px;padding:18px;margin-top:12px">
           <div style="font-family:var(--mono);font-size:9.5px;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px">Why this matters</div>
-          <div style="font-size:12.5px;color:var(--ts);line-height:1.7">India has 50M+ mutual fund investors. Every existing app requires login, sends data to servers, and shows estimated returns. RAYR Fin calculates real XIRR from actual purchase data and runs entirely in the browser — no server, no login, no data exposure.</div>
+          <div style="font-size:12.5px;color:var(--ts);line-height:1.7">India has 50M+ mutual fund investors. Every existing free app requires login, sends data to servers, and shows estimated figures. RAYR Fin calculates real XIRR from your actual purchase prices and runs entirely in-browser — no server, no login, no data ever leaves your device.</div>
         </div>
       </div>
     </div>
 
     <!-- RAYR Mobile -->
     <div class="pc">
-      <div class="pm"><span class="tag tlv">Live</span><span class="tag tfn">Fintech</span><span class="tag tpw">PWA · Installable</span></div>
+      <div class="pm"><span class="tag tlv">Live</span><span class="tag tfn">Fintech · Quant</span><span class="tag tpw">PWA · Installable</span></div>
       <div class="pt">RAYR Mobile</div>
-      <div class="pl">12-algorithm quant engine. Runs on any device.</div>
-      <p class="pd2">A <strong>Bloomberg-grade quant trading PWA</strong> running 12 technical analysis algorithms simultaneously — RSI, MACD, Bollinger Bands, ADX, Fibonacci, and more — across NSE/BSE, US stocks, Forex, Crypto, and F&amp;O. One plain-English verdict with entry/exit levels and position sizing for any budget. Installable on Android, iPhone, and desktop.</p>
+      <div class="pln">12-algorithm quant analysis PWA. Runs on any device, works offline.</div>
+      <p class="pd2">A <strong>Bloomberg-grade quant trading PWA</strong> running 12 technical analysis algorithms simultaneously — RSI, MACD, Bollinger Bands, ADX, Fibonacci, and more — across NSE/BSE, US stocks, Forex, Crypto, and F&amp;O. Delivers a single plain-English verdict with entry/exit levels and position sizing. Installable on Android and iPhone like a native app.</p>
       <ul class="pf">
-        <li>12-algo consensus engine — same models used by professional traders</li>
-        <li>Funded trader mode for FTMO, FundedNext &amp; prop firms</li>
-        <li>Full portfolio tracker with P&amp;L and NIFTY50 benchmark</li>
-        <li>Installable PWA — works offline after first load</li>
+        <li>12-algo consensus engine — same models used by professional prop traders</li>
+        <li>Funded trader mode for FTMO, FundedNext &amp; prop firm rules</li>
+        <li>Portfolio tracker with P&amp;L and NIFTY50 benchmark comparison</li>
+        <li>Full PWA — installable, offline-capable after first load</li>
       </ul>
       <div class="plk">
         <a href="https://rayr-06.github.io/rayr-mobile" target="_blank" rel="noreferrer" class="lb ll">↗ Live Demo</a>
@@ -293,15 +296,15 @@ footer{padding:28px clamp(20px,5vw,80px);border-top:1px solid var(--border);disp
 
     <!-- QA Forge -->
     <div class="pc">
-      <div class="pm"><span class="tag tlv">Live</span><span class="tag tai">AI · LLM</span><span class="tag tqa">Test Automation</span></div>
+      <div class="pm"><span class="tag tlv">Live</span><span class="tag tai">AI · LLM</span><span class="tag tqa">Test Generation</span></div>
       <div class="pt">QA Forge</div>
-      <div class="pl">Requirements → complete test suite, powered by LLM reasoning.</div>
-      <p class="pd2">Converts product requirements and UI context into <strong>complete, structured test suites using LLM reasoning</strong>. Built from 6 years of watching QA teams spend 40% of their time writing test cases that could be generated in seconds. Handles edge cases, negative flows, and regression scenarios that manual test writers routinely miss.</p>
+      <div class="pln">Product requirements → complete test suite via LLM reasoning.</div>
+      <p class="pd2">Built from personal experience watching QA engineers spend 40% of their time writing test cases that a well-prompted LLM could generate in seconds. <strong>QA Forge converts product requirements into complete, structured test suites</strong> — including edge cases, negative flows, and boundary conditions that manual designers often miss. Prompt-engineered for professional, structured output.</p>
       <ul class="pf">
-        <li>Requirements → full professional test suite in under 60 seconds</li>
-        <li>Visual UI context analysis for boundary and edge-case detection</li>
-        <li>Prompt engineering designed for structured, repeatable output</li>
-        <li>Applicable to any software domain — not domain-locked</li>
+        <li>Requirements → professional test suite in under 60 seconds</li>
+        <li>Handles edge cases, negative flows, boundary and regression scenarios</li>
+        <li>Prompt engineering tuned specifically for structured QA output</li>
+        <li>Applicable to any software domain — web, mobile, game, API</li>
       </ul>
       <div class="plk">
         <a href="https://rayr-06.github.io/qa-forge" target="_blank" rel="noreferrer" class="lb ll">↗ Live Demo</a>
@@ -309,58 +312,52 @@ footer{padding:28px clamp(20px,5vw,80px);border-top:1px solid var(--border);disp
       </div>
     </div>
 
-    <!-- RAYR Vision -->
-    <div class="pc">
-      <div class="pm"><span class="tag tai">Computer Vision</span><span class="tag tpy">Python</span><span class="tag tqa">Android Automation</span></div>
-      <div class="pt">RAYR Vision QA</div>
-      <div class="pl">Vision-based automation for games — no UI selectors needed.</div>
-      <p class="pd2">Tackles the hardest problem in mobile game testing: <strong>games have no accessible UI tree</strong>. Traditional automation tools fail completely here. RAYR Vision uses computer vision to recognise game states, detect UI anomalies, and validate gameplay flows without any hardcoded selectors — making it robust across build changes.</p>
-      <ul class="pf">
-        <li>Screen-state recognition via CV — no selector dependency whatsoever</li>
-        <li>Automated Android game test execution end-to-end</li>
-        <li>Visual regression and UI anomaly detection across builds</li>
-      </ul>
-      <div class="plk">
-        <a href="https://github.com/Rayr-06/rayr" target="_blank" rel="noreferrer" class="lb lg">GitHub →</a>
-      </div>
-    </div>
-
     <!-- DatBeatsAmJ -->
     <div class="pc">
       <div class="pm"><span class="tag tpy">Python · Flask</span><span class="tag tpy">Full Stack</span><span class="tag tpy">SQLAlchemy</span></div>
       <div class="pt">DatBeatsAmJ</div>
-      <div class="pl">Vocal studio management. Flask + SQLAlchemy + REST API.</div>
-      <p class="pd2">A full-stack web application managing a vocal teaching studio — student enrollment, lesson scheduling, progress tracking, and communication. Demonstrates <strong>multi-role system design, REST API architecture, and relational database modelling</strong> — the fundamentals that underpin every serious web application.</p>
+      <div class="pln">Full-stack vocal studio management platform.</div>
+      <p class="pd2">A complete full-stack web application for managing a vocal teaching studio — student enrollment, lesson scheduling, progress tracking, and teacher-student communication. Built to learn Flask, SQLAlchemy, and multi-role application architecture. Demonstrates the <strong>backend fundamentals that underpin every serious web product</strong>: REST APIs, relational data modelling, role-based access control.</p>
       <ul class="pf">
         <li>Multi-role dashboards: separate teacher and student views</li>
-        <li>Scheduling, lesson tracking, and progress logs</li>
-        <li>Flask · SQLAlchemy · REST API · C++ audio processing integration</li>
+        <li>Lesson scheduling, progress tracking, and communication tools</li>
+        <li>Flask · SQLAlchemy · REST API · session-based auth</li>
       </ul>
       <div class="plk">
         <a href="https://github.com/Rayr-06/datbeatsamj" target="_blank" rel="noreferrer" class="lb lg">GitHub →</a>
       </div>
     </div>
 
+    <!-- RAYR Vision — IN DEVELOPMENT -->
+    <div class="pc" style="grid-column:1/-1;opacity:.85">
+      <div class="pm"><span class="tag tdev">In Development</span><span class="tag tai">Computer Vision</span><span class="tag tpy">Python</span><span class="tag tqa">Android Testing</span></div>
+      <div class="pt">RAYR Vision QA <span style="font-family:var(--mono);font-size:12px;color:var(--dev);font-weight:400;margin-left:6px">· prototype</span></div>
+      <div class="pln">Vision-based Android game test automation — no UI selectors required.</div>
+      <p class="pd2" style="max-width:680px">A work-in-progress solution to a genuine unsolved problem in mobile game testing: <strong>games have no accessible UI tree</strong>. Standard automation tools like Appium fail because they rely on element locators that don't exist in game renders. RAYR Vision uses computer vision to recognise game states and validate flows visually. Currently in prototype stage — sharing it here because the problem is real and the approach is working.</p>
+      <div class="plk">
+        <a href="https://github.com/Rayr-06/rayr" target="_blank" rel="noreferrer" class="lb lg">GitHub (Prototype) →</a>
+      </div>
+    </div>
   </div>
 </section>
 
 <section id="skills">
-  <div class="sk">03 · What I Know</div>
-  <h2>Stack &amp; <em>Skills</em></h2>
-  <p class="ss">Built through shipping real products, not accumulating certificates.</p>
+  <div class="sk">03 · Stack &amp; Skills</div>
+  <h2>What I <em>know</em></h2>
+  <p class="ss">Earned through independent building and 7+ years of professional software work.</p>
   <div class="skg">
     <div class="skc">
       <span class="ski">⚡</span>
-      <div class="skt">AI &amp; LLM Engineering</div>
+      <div class="skt">AI &amp; LLM</div>
       <div class="ski2"><span class="sdd" style="background:var(--gold)"></span>Claude AI · Anthropic API</div>
       <div class="ski2"><span class="sdd" style="background:var(--gold)"></span>Groq — Llama 3.3 70B</div>
       <div class="ski2"><span class="sdd" style="background:var(--gold)"></span>Prompt Engineering</div>
       <div class="ski2"><span class="sdd" style="background:var(--gold)"></span>LLM Product Architecture</div>
-      <div class="ski2"><span class="sdd" style="background:var(--gold)"></span>AI Tool Design &amp; UX</div>
+      <div class="ski2"><span class="sdd" style="background:var(--gold)"></span>Context Window Design</div>
     </div>
     <div class="skc">
       <span class="ski">💻</span>
-      <div class="skt">Frontend Development</div>
+      <div class="skt">Frontend</div>
       <div class="ski2"><span class="sdd" style="background:var(--teal)"></span>React 18 · Vite</div>
       <div class="ski2"><span class="sdd" style="background:var(--teal)"></span>PWA Development</div>
       <div class="ski2"><span class="sdd" style="background:var(--teal)"></span>Recharts · Data Visualisation</div>
@@ -369,48 +366,56 @@ footer{padding:28px clamp(20px,5vw,80px);border-top:1px solid var(--border);disp
     </div>
     <div class="skc">
       <span class="ski">🐍</span>
-      <div class="skt">Backend &amp; Automation</div>
+      <div class="skt">Backend</div>
       <div class="ski2"><span class="sdd" style="background:var(--blue)"></span>Python · Flask</div>
       <div class="ski2"><span class="sdd" style="background:var(--blue)"></span>SQLAlchemy · REST APIs</div>
       <div class="ski2"><span class="sdd" style="background:var(--blue)"></span>Computer Vision (OpenCV)</div>
-      <div class="ski2"><span class="sdd" style="background:var(--blue)"></span>Android Test Automation</div>
-      <div class="ski2"><span class="sdd" style="background:var(--blue)"></span>API Integration &amp; Pipelines</div>
+      <div class="ski2"><span class="sdd" style="background:var(--blue)"></span>Android Automation</div>
+      <div class="ski2"><span class="sdd" style="background:var(--blue)"></span>API Integration</div>
     </div>
     <div class="skc">
-      <span class="ski">🎯</span>
-      <div class="skt">Domain Expertise</div>
-      <div class="ski2"><span class="sdd" style="background:var(--amber)"></span>Fintech &amp; Quant Finance</div>
-      <div class="ski2"><span class="sdd" style="background:var(--amber)"></span>Technical Analysis · 12 Algos</div>
-      <div class="ski2"><span class="sdd" style="background:var(--amber)"></span>Gaming Platform QA</div>
-      <div class="ski2"><span class="sdd" style="background:var(--amber)"></span>Software Quality Systems</div>
+      <span class="ski">🎮</span>
+      <div class="skt">QA Domain</div>
+      <div class="ski2"><span class="sdd" style="background:var(--amber)"></span>AAA Game Testing</div>
       <div class="ski2"><span class="sdd" style="background:var(--amber)"></span>Xbox · PlayStation · PC</div>
+      <div class="ski2"><span class="sdd" style="background:var(--amber)"></span>JIRA · Charles Proxy · Beacon</div>
+      <div class="ski2"><span class="sdd" style="background:var(--amber)"></span>Live-Ops · Regression</div>
+      <div class="ski2"><span class="sdd" style="background:var(--amber)"></span>Agile / Scrum</div>
     </div>
   </div>
 </section>
 
 <section id="experience">
-  <div class="sk">04 · Career</div>
+  <div class="sk">04 · Professional Experience</div>
   <h2>Where I've <em>worked</em></h2>
-  <div class="ec">
+  <div class="ec full">
     <div class="eh">
-      <div><div class="eco">Indium Software</div><div class="er">Test Engineer → AI Product Builder · Bengaluru, India</div></div>
+      <div><div class="eco">Indium Software</div><div class="er">Test Engineer (Senior) · Gaming QA · Bengaluru</div></div>
       <div class="ep">May 2022 – Present · 3+ Years</div>
     </div>
-    <div class="ei">Delivered structured test planning across <strong>Xbox, PlayStation, and PC gaming environments</strong> — 6.5 years total industry experience in software quality and complex interactive system testing</div>
-    <div class="ei">Identified systematic gaps in QA workflows and <strong>built AI-powered tools to eliminate them</strong> — QA Forge converts product requirements to complete test suites via LLM reasoning, removing 40% of manual test design effort</div>
-    <div class="ei">Designed <strong>vision-based mobile game automation</strong> (RAYR Vision QA) operating without UI selectors — solving the fundamental unsolved problem that makes game automation hard</div>
-    <div class="ei">Managed <strong>end-to-end defect lifecycle</strong>: identification, severity classification, developer handoff, regression verification — across agile sprints with cross-functional teams</div>
-    <div class="ei">Built the production communication and collaboration skills that make <strong>AI products actually ship</strong> — not stay as prototypes or demos</div>
+    <div class="ei">Executed <strong>500+ functional test cases</strong> across Xbox One, PlayStation, and PC — ensuring 100% requirement coverage and zero critical launch bugs across multiple AAA title releases</div>
+    <div class="ei">Reduced post-launch critical bug reports by <strong>30%</strong> through comprehensive regression testing and systematic root cause analysis on live game updates</div>
+    <div class="ei">Managed end-to-end bug lifecycle in JIRA across <strong>5+ concurrent Agile sprints</strong>, decreasing average resolution time by 25% through structured defect triage and developer handoff protocols</div>
+    <div class="ei">Conducted live-ops testing using <strong>Beacon analytics and Charles Proxy</strong>, identifying 50+ performance bottlenecks impacting player experience during peak traffic events</div>
+    <div class="ei">Completed full regression cycles for <strong>4+ major game patches</strong> with zero critical issues reaching production servers — across Xbox, PlayStation, and PC simultaneously</div>
+    <div class="ei">Collaborated directly with development and design teams to <strong>reproduce and document complex bugs</strong>, producing reproduction steps that accelerated fix turnaround by 40%</div>
   </div>
-  <div class="ec">
-    <div class="eh">
-      <div><div class="eco">Self-Directed AI Product Engineering</div><div class="er">AI Product Engineer · Parallel to full-time role</div></div>
-      <div class="ep">2023 – Present</div>
+  <div class="etwo">
+    <div class="ec">
+      <div class="eh">
+        <div><div class="eco" style="font-size:18px">Concentrix</div><div class="er">Financial Advisor</div></div>
+        <div class="ep">Oct 2020 – May 2022</div>
+      </div>
+      <div class="ei">Delivered detailed financial assessments for 50+ clients — developed the analytical rigour and financial domain understanding that directly informs RAYR Fin's design</div>
+      <div class="ei">Built client communication skills explaining complex financial products — directly transferable to writing clear product specs and AI prompt design</div>
     </div>
-    <div class="ei">Built and deployed <strong>RAYR Fin</strong> — AI portfolio intelligence for Indian retail investors with real XIRR, Monte Carlo simulation (1,000 paths), live AMFI data, and Groq AI integration</div>
-    <div class="ei">Built and deployed <strong>RAYR Mobile</strong> — a full quant trading PWA running 12 simultaneous technical analysis algorithms across NSE/BSE, US, Forex, Crypto, and F&amp;O markets</div>
-    <div class="ei">Established <strong>GitHub Actions CI/CD pipeline</strong> — automatic build, test, and deployment to GitHub Pages on every commit push</div>
-    <div class="ei">Shipped <strong>5 live products</strong> across fintech, AI tooling, vision automation, and full-stack domains — all publicly accessible, actively maintained</div>
+    <div class="ec">
+      <div class="eh">
+        <div><div class="eco" style="font-size:18px">Yamuna Home Interiors</div><div class="er">Accounts Assistant</div></div>
+        <div class="ep">Feb 2017 – May 2020</div>
+      </div>
+      <div class="ei">Financial record-keeping, vendor coordination, and inventory tracking — cultivated the attention to detail and process discipline that underpins quality engineering work</div>
+    </div>
   </div>
 </section>
 
@@ -421,33 +426,33 @@ footer{padding:28px clamp(20px,5vw,80px);border-top:1px solid var(--border);disp
     <div class="apc">
       <div class="apn">01</div>
       <div class="apt">Domain expertise is the moat</div>
-      <div class="apb">Any developer can call a GPT API. What separates a good AI product from a generic wrapper is <strong>deep understanding of the problem domain</strong>. Six years inside real software quality work means I know exactly what breaks, why it breaks, and what a real solution needs to do.</div>
+      <div class="apb">Any developer can call a GPT API. What separates a good AI product from a generic one is <strong>deep understanding of the problem domain</strong>. Six years inside real software quality work tells you what an AI test tool actually needs to do — and what it will get wrong if you don't design for it.</div>
     </div>
     <div class="apc">
       <div class="apn">02</div>
-      <div class="apt">Ship it. Then make it better.</div>
-      <div class="apb">Every project on this page is live and publicly accessible. Not a mockup, not a prototype. <strong>Real deployment teaches what design thinking never does</strong> — what actually breaks under real users, real data, real devices, real network conditions.</div>
+      <div class="apt">Ship it. Then improve it.</div>
+      <div class="apb">Every project on this page is publicly accessible right now. Not a mockup, not a GitHub repo with a long README and no working code. <strong>Real deployment teaches what design thinking never does</strong> — what breaks under real users, real data, and real devices.</div>
     </div>
     <div class="apc">
       <div class="apn">03</div>
-      <div class="apt">Honest numbers, not estimated ones</div>
-      <div class="apb">RAYR Fin shows real XIRR calculated from actual purchase data — not a percentage guess. QA Forge generates structured tests from actual requirements. <strong>The product should tell the truth</strong>, even when the truth is harder to build than a fake number.</div>
+      <div class="apt">Show honest numbers</div>
+      <div class="apb">RAYR Fin shows real XIRR from actual purchase data — not an estimated percentage. QA Forge generates test cases from actual requirements — not templates. <strong>The product should tell the truth</strong>, even when the truth is harder to calculate than a guess.</div>
     </div>
     <div class="apc">
       <div class="apn">04</div>
-      <div class="apt">Build for people, not demos</div>
-      <div class="apb">Blur mode in RAYR Fin exists because I thought about someone using their phone in public. The FD comparison exists because I know what Indian investors' first question always is. <strong>Empathy for the user is a technical requirement</strong>, not a soft skill add-on.</div>
+      <div class="apt">Build for real people</div>
+      <div class="apb">Blur mode in RAYR Fin exists because I thought about someone using their phone in public. The FD comparison exists because I know what Indian investors always ask first. <strong>Empathy for the user is a technical requirement</strong>, not a soft skill.</div>
     </div>
   </div>
   <div class="pq">
-    <div class="pqt">"Quality is not a phase at the end of development. It is a system you design from the beginning — and the best system prevents problems rather than finding them after the fact."</div>
+    <div class="pqt">"Quality is not a phase at the end of development. It is a system you design from the beginning — and the best systems prevent problems rather than finding them after the fact."</div>
   </div>
 </section>
 
 <section id="contact">
-  <div class="sk">06 · Let's Talk</div>
-  <h2>Get in <em>touch</em></h2>
-  <p class="ss">Open to full-time roles, freelance projects, and collaborations in AI product engineering, fintech, and intelligent automation. I respond to every message.</p>
+  <div class="sk">06 · Get In Touch</div>
+  <h2>Let's <em>talk</em></h2>
+  <p class="ss">Open to full-time roles in AI product engineering, frontend development, and fintech. I respond to every message — recruiters and engineers both welcome.</p>
   <div class="cg">
     <a href="mailto:sharmaadithya1995@gmail.com" class="cc">
       <div class="ci">✉</div>
@@ -470,12 +475,10 @@ footer{padding:28px clamp(20px,5vw,80px);border-top:1px solid var(--border);disp
     <div class="cad"></div>
     <div>
       <div class="cat">Currently available</div>
-      <div class="cab">Looking for roles where I can <strong>build AI-powered products end-to-end</strong> — from system design to production deployment. Strong preference for companies where the quality of what you build matters as much as how fast you ship it.</div>
+      <div class="cab">Looking for a role where I can <strong>build AI-powered products end-to-end</strong>. I bring genuine domain expertise in fintech and gaming — not just a developer who learned React last month. Prefer companies where quality of product matters. Open to full remote or Bengaluru.</div>
       <div class="cts">
-        <span class="ctg">AI Product Engineering</span>
-        <span class="ctg">Fintech</span>
-        <span class="ctg">LLM Applications</span>
-        <span class="ctg">React · Python</span>
+        <span class="ctg">AI Product Engineering</span><span class="ctg">Fintech</span>
+        <span class="ctg">LLM Applications</span><span class="ctg">React · Python</span>
         <span class="ctg">Remote or Bengaluru</span>
       </div>
     </div>
@@ -483,30 +486,15 @@ footer{padding:28px clamp(20px,5vw,80px);border-top:1px solid var(--border);disp
 </section>
 
 <footer>
-  <span class="ft">Built by Adithya Sharma · AI Product Engineer · Bengaluru</span>
-  <span class="ft">5 products live · <a href="https://github.com/Rayr-06" target="_blank" rel="noreferrer">github.com/Rayr-06</a></span>
+  <span class="ft">Adithya Sharma · AI Product Engineer · Bengaluru</span>
+  <span class="ft">4 live products · <a href="https://github.com/Rayr-06" target="_blank" rel="noreferrer">github.com/Rayr-06</a></span>
 </footer>
-
 <script>
-// Scroll-triggered fade-in
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; obs.unobserve(e.target); }
-  });
-}, { threshold: 0.07 });
-document.querySelectorAll('.pc,.skc,.apc,.ec,.cc').forEach(el => {
-  el.style.cssText += ';opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease';
-  obs.observe(el);
-});
-
-// Active nav
-const secs = document.querySelectorAll('section[id]');
-const nls = document.querySelectorAll('.nl a');
-window.addEventListener('scroll', () => {
-  let cur = '';
-  secs.forEach(s => { if (window.scrollY >= s.offsetTop - 120) cur = s.id; });
-  nls.forEach(a => { a.style.color = a.getAttribute('href') === '#' + cur ? 'var(--gold)' : ''; });
-}, {passive:true});
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';obs.unobserve(e.target);}});},{threshold:.07});
+document.querySelectorAll('.pc,.skc,.apc,.ec,.cc').forEach(el=>{el.style.cssText+=';opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease';obs.observe(el);});
+const secs=document.querySelectorAll('section[id]');
+const nls=document.querySelectorAll('.nl a');
+window.addEventListener('scroll',()=>{let c='';secs.forEach(s=>{if(window.scrollY>=s.offsetTop-120)c=s.id;});nls.forEach(a=>{a.style.color=a.getAttribute('href')==='#'+c?'var(--gold)':'';});},{passive:true});
 </script>
 </body>
 </html>
