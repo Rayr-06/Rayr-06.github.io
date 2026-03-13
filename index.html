@@ -1,627 +1,512 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Adithya Sharma · QA Engineer & AI Tool Builder</title>
-  <meta name="description" content="Adithya Sharma — QA Engineer with 6.5+ years experience in gaming platforms. Builder of AI-powered QA tools and fintech intelligence systems.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    :root {
-      --pk: #ff64c8; --pu: #a064ff; --cy: #5de4ff; --gr: #3dffa0;
-      --bg: #07071a; --card: rgba(16,10,35,0.75);
-      --b0: rgba(255,255,255,0.06); --b1: rgba(255,100,200,0.18);
-      --tx: #eeeeff; --mu: #7878aa;
-    }
-    html { scroll-behavior: smooth; }
-    body { background: var(--bg); color: var(--tx); font-family: 'DM Sans', sans-serif; overflow-x: hidden; line-height: 1.65; }
-
-    body::before {
-      content: ''; position: fixed; inset: 0; z-index: -2;
-      background: radial-gradient(ellipse 110% 70% at 15% 5%, rgba(100,50,200,.13) 0%, transparent 58%),
-                  radial-gradient(ellipse 80% 60% at 85% 90%, rgba(255,100,200,.07) 0%, transparent 55%), #07071a;
-    }
-    .orb { position: fixed; border-radius: 50%; filter: blur(90px); z-index: -1; pointer-events: none; animation: od 22s ease-in-out infinite; }
-    .o1 { width:700px;height:700px;background:rgba(140,80,255,.07);top:-250px;right:-200px; }
-    .o2 { width:550px;height:550px;background:rgba(255,80,180,.05);bottom:-180px;left:-180px;animation-delay:-11s; }
-    .o3 { width:350px;height:350px;background:rgba(60,220,255,.04);top:45%;left:55%;animation-delay:-7s; }
-    @keyframes od { 0%,100%{transform:translate(0,0)} 33%{transform:translate(50px,-40px)} 66%{transform:translate(-30px,30px)} }
-
-    /* NAV */
-    nav {
-      position: fixed; top:16px; left:50%; transform:translateX(-50%);
-      width:92%; max-width:1120px; padding:15px 28px;
-      background:rgba(10,6,24,.6); backdrop-filter:blur(20px);
-      border:1px solid rgba(255,255,255,.08); border-radius:60px; z-index:1000;
-      display:flex; justify-content:space-between; align-items:center;
-      box-shadow:0 8px 40px rgba(0,0,0,.45); transition:background .4s,border-color .4s;
-    }
-    nav.scrolled { background:rgba(7,5,18,.93); border-color:rgba(255,100,200,.2); }
-
-    .logo { font-family:'JetBrains Mono',monospace; font-weight:700; white-space:nowrap; overflow:hidden; background:linear-gradient(90deg,var(--pk),var(--pu)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
-    .lf { display:inline; font-size:.98rem; opacity:1; max-width:220px; transition:opacity .3s,max-width .4s; }
-    .ls { display:inline; font-size:1.3rem; opacity:0; max-width:0; overflow:hidden; transition:opacity .3s,max-width .4s; }
-    nav.scrolled .lf { opacity:0; max-width:0; }
-    nav.scrolled .ls { opacity:1; max-width:60px; }
-
-    .nl { display:flex; gap:28px; list-style:none; }
-    .nl a { color:var(--mu); text-decoration:none; font-family:'JetBrains Mono',monospace; font-size:.75rem; text-transform:uppercase; letter-spacing:1.5px; transition:color .2s; position:relative; padding-bottom:2px; }
-    .nl a::after { content:''; position:absolute; bottom:-2px; left:0; width:0; height:1.5px; background:linear-gradient(90deg,var(--pk),var(--pu)); transition:width .3s; }
-    .nl a:hover, .nl a.act { color:white; }
-    .nl a:hover::after, .nl a.act::after { width:100%; }
-    .hb { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; }
-    .hb span { width:22px; height:2px; background:var(--pk); border-radius:2px; display:block; transition:.3s; }
-
-    .wrap { max-width:1200px; margin:0 auto; padding:0 40px; }
-    section { padding:110px 0; }
-
-    .ey { display:flex; align-items:center; gap:12px; margin-bottom:14px; }
-    .ey span { font-family:'JetBrains Mono',monospace; font-size:.72rem; text-transform:uppercase; letter-spacing:3px; color:var(--pk); }
-    .ey::after { content:''; flex:1; max-width:60px; height:1px; background:linear-gradient(90deg,var(--pk),transparent); }
-    .st { font-family:'Syne',sans-serif; font-weight:800; font-size:clamp(2.2rem,5vw,3.6rem); line-height:1.08; background:linear-gradient(140deg,#fff 30%,var(--pk) 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:48px; }
-
-    /* HERO */
-    #hero { min-height:100vh; display:flex; align-items:center; padding:120px 0 80px; position:relative; }
-    .hi { max-width:820px; }
-    .badge { display:inline-flex; align-items:center; gap:9px; background:rgba(255,100,200,.08); border:1px solid rgba(255,100,200,.25); border-radius:60px; padding:7px 18px; margin-bottom:32px; font-family:'JetBrains Mono',monospace; font-size:.78rem; color:var(--pk); animation:fu .7s ease both; }
-    .dot { width:7px; height:7px; background:var(--gr); border-radius:50%; box-shadow:0 0 8px var(--gr); animation:bl 2.4s infinite; }
-    @keyframes bl { 0%,100%{opacity:1} 50%{opacity:.3} }
-
-    .hn { font-family:'Syne',sans-serif; font-weight:800; font-size:clamp(3.5rem,11vw,7rem); line-height:.95; margin-bottom:6px; animation:fu .7s ease .08s both; }
-    .hl { display:block; position:relative; color:white; }
-    .hl::before, .hl::after { content:attr(data-t); position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; }
-    .hl::before { color:var(--pk); animation:ga 2.8s infinite; z-index:-1; }
-    .hl::after  { color:var(--cy); animation:gb 3.4s infinite; z-index:-2; }
-    @keyframes ga { 0%,85%,100%{clip-path:inset(0 0 100% 0);transform:none} 88%{clip-path:inset(15% 0 60% 0);transform:translate(-3px,2px)} 92%{clip-path:inset(55% 0 15% 0);transform:translate(3px,-2px)} 96%{clip-path:inset(30% 0 40% 0);transform:translate(-1px,1px)} }
-    @keyframes gb { 0%,88%,100%{clip-path:inset(0 0 100% 0);transform:none} 91%{clip-path:inset(60% 0 10% 0);transform:translate(3px,-3px)} 95%{clip-path:inset(5% 0 65% 0);transform:translate(-2px,2px)} }
-
-    .hr { font-family:'JetBrains Mono',monospace; font-size:clamp(.85rem,2vw,1.1rem); color:var(--pu); letter-spacing:.06em; text-transform:uppercase; margin:22px 0 20px; animation:fu .7s ease .16s both; }
-    .hr .sp { color:rgba(255,255,255,.2); margin:0 10px; }
-    .hp { font-size:clamp(1rem,1.8vw,1.18rem); color:#c0c0e0; line-height:1.85; max-width:650px; margin-bottom:40px; animation:fu .7s ease .24s both; }
-    .hp strong { color:white; }
-    .cr { display:flex; gap:14px; flex-wrap:wrap; margin-bottom:64px; animation:fu .7s ease .32s both; }
-
-    .btn { padding:12px 30px; border-radius:60px; font-family:'Syne',sans-serif; font-weight:700; font-size:.85rem; text-transform:uppercase; letter-spacing:1px; text-decoration:none; border:2px solid transparent; display:inline-flex; align-items:center; gap:8px; cursor:pointer; transition:transform .22s,box-shadow .22s,background .22s; }
-    .bp { background:linear-gradient(135deg,var(--pk),var(--pu)); color:#08081a; box-shadow:0 0 28px rgba(255,100,200,.35); }
-    .bp:hover { transform:translateY(-2px); box-shadow:0 0 50px rgba(255,100,200,.6); }
-    .bg { border-color:rgba(255,255,255,.15); color:white; background:transparent; }
-    .bg:hover { background:rgba(255,255,255,.06); border-color:rgba(255,100,200,.4); transform:translateY(-2px); }
-
-    .sr { display:flex; gap:52px; flex-wrap:wrap; animation:fu .7s ease .4s both; }
-    .sn { font-family:'Syne',sans-serif; font-weight:800; font-size:2.5rem; line-height:1; background:linear-gradient(135deg,var(--pk),var(--pu)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
-    .sl { color:var(--mu); font-size:.75rem; text-transform:uppercase; letter-spacing:1.2px; margin-top:5px; }
-
-    .sc { position:absolute; bottom:32px; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:8px; color:var(--mu); font-family:'JetBrains Mono',monospace; font-size:.65rem; letter-spacing:2px; text-transform:uppercase; animation:fi 1s ease 1.6s both; }
-    .ad { width:18px; height:18px; border-right:2px solid var(--mu); border-bottom:2px solid var(--mu); transform:rotate(45deg); animation:bd 2.2s infinite; }
-    @keyframes bd { 0%,100%{transform:rotate(45deg) translateY(0)} 50%{transform:rotate(45deg) translateY(7px)} }
-
-    /* ABOUT */
-    .ag { display:grid; grid-template-columns:1.3fr 1fr; gap:72px; align-items:start; }
-    .al { font-size:1.08rem; color:#c4c4e8; line-height:1.9; }
-    .al p { margin-bottom:18px; }
-    .al p strong { color:white; }
-    .chips { display:flex; flex-wrap:wrap; gap:10px; margin-top:28px; }
-    .chip { padding:7px 18px; border-radius:60px; border:1px solid rgba(160,100,255,.3); background:rgba(160,100,255,.07); font-family:'JetBrains Mono',monospace; font-size:.72rem; color:#c0a0ff; transition:.2s; }
-    .chip:hover { border-color:var(--pu); background:rgba(160,100,255,.16); }
-    .pc { background:var(--card); border:1px solid var(--b0); border-radius:28px; padding:34px; backdrop-filter:blur(14px); position:sticky; top:100px; }
-    .pct { font-family:'Syne',sans-serif; font-weight:700; font-size:1rem; color:var(--pk); margin-bottom:26px; }
-    .pr { display:flex; gap:14px; align-items:flex-start; margin-bottom:20px; }
-    .pr i { color:var(--pu); width:18px; flex-shrink:0; margin-top:3px; font-size:.9rem; }
-    .pr strong { display:block; font-size:.92rem; margin-bottom:2px; }
-    .pr span { color:var(--mu); font-size:.8rem; }
-
-    /* PROJECTS */
-    .pg { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
-    .pf { grid-column:1/-1; display:grid; grid-template-columns:1fr 1fr; gap:0; }
-    .card { background:var(--card); border:1px solid var(--b0); border-radius:28px; display:flex; flex-direction:column; backdrop-filter:blur(14px); overflow:hidden; transition:transform .3s,border-color .3s,box-shadow .3s; }
-    .card:hover { transform:translateY(-7px); border-color:rgba(255,100,200,.35); box-shadow:0 20px 55px -12px rgba(255,100,200,.2); }
-    .cb { padding:32px; display:flex; flex-direction:column; flex:1; }
-    .cv { background:rgba(0,0,0,.35); padding:28px; display:flex; flex-direction:column; justify-content:center; border-left:1px solid var(--b0); }
-
-    .cat { display:inline-flex; align-items:center; gap:6px; padding:4px 14px; border-radius:60px; font-family:'JetBrains Mono',monospace; font-size:.68rem; border:1px solid; width:fit-content; margin-bottom:16px; }
-    .cqa  { border-color:var(--pk); color:var(--pk); background:rgba(255,100,200,.08); }
-    .cfin { border-color:var(--cy); color:var(--cy); background:rgba(93,228,255,.08); }
-    .cpwa { border-color:#ffe066;  color:#ffe066;  background:rgba(255,224,102,.08); }
-    .cpy  { border-color:#4fc3f7; color:#4fc3f7; background:rgba(79,195,247,.08); }
-    .cnew { border-color:var(--gr); color:var(--gr); background:rgba(61,255,160,.08); }
-
-    .cn { font-family:'Syne',sans-serif; font-weight:800; font-size:1.75rem; line-height:1.1; margin-bottom:8px; }
-    .cs { font-family:'JetBrains Mono',monospace; font-size:.8rem; color:var(--mu); margin-bottom:16px; }
-    .cd { color:#b0b0d0; font-size:.93rem; line-height:1.75; flex:1; margin-bottom:22px; }
-    .cpts { margin-bottom:22px; }
-    .cpt { display:flex; align-items:flex-start; gap:10px; color:#c4c4e8; font-size:.88rem; margin-bottom:8px; }
-    .cpt i { color:var(--pu); flex-shrink:0; margin-top:3px; font-size:.8rem; }
-    .ctags { display:flex; flex-wrap:wrap; gap:7px; margin-bottom:24px; }
-    .ctag { padding:3px 12px; border-radius:60px; border:1px solid rgba(160,100,255,.3); background:rgba(160,100,255,.07); font-family:'JetBrains Mono',monospace; font-size:.67rem; color:#c0a0ff; }
-    .clinks { display:flex; gap:10px; flex-wrap:wrap; margin-top:auto; }
-    .cl { padding:8px 20px; border-radius:60px; border:1px solid rgba(255,255,255,.13); color:white; text-decoration:none; font-family:'Syne',sans-serif; font-weight:600; font-size:.82rem; transition:.2s; display:inline-flex; align-items:center; gap:7px; }
-    .cl:hover { background:rgba(255,100,200,.12); border-color:var(--pk); }
-    .cl.cta { background:linear-gradient(135deg,var(--pk),var(--pu)); border:none; color:#08081a; }
-    .cl.cta:hover { transform:scale(1.04); box-shadow:0 0 24px rgba(255,100,200,.5); }
-
-    /* Terminal */
-    .term { background:rgba(0,0,0,.6); border-radius:16px; border:1px solid rgba(255,100,200,.2); padding:18px; font-family:'JetBrains Mono',monospace; font-size:.78rem; line-height:1.85; }
-    .tbar { display:flex; gap:6px; margin-bottom:14px; padding-bottom:10px; border-bottom:1px solid rgba(255,255,255,.05); }
-    .td { width:10px; height:10px; border-radius:50%; }
-    .tr2{background:#ff5f56} .ty2{background:#ffbd2e} .tg2{background:#27c93f}
-    .tp2{color:var(--pk)} .tc2{color:white} .to2{color:#3dffa0} .tm2{color:var(--mu)} .tw2{color:#ffe066}
-
-    /* Trading widget */
-    .tw { background:rgba(0,0,0,.5); border-radius:16px; border:1px solid rgba(93,228,255,.15); padding:20px; font-family:'JetBrains Mono',monospace; font-size:.76rem; }
-    .twh { display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; padding-bottom:12px; border-bottom:1px solid rgba(255,255,255,.05); }
-    .twl { color:var(--cy); font-weight:700; font-size:.95rem; }
-    .tws { background:rgba(61,255,160,.12); border:1px solid var(--gr); color:var(--gr); padding:3px 12px; border-radius:60px; font-size:.72rem; }
-    .twr { display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid rgba(255,255,255,.03); color:#a0a0c0; }
-    .up{color:#3dffa0} .dn{color:#ff5f56}
-    .twa { display:grid; grid-template-columns:1fr 1fr; gap:7px; margin-top:14px; }
-    .twal { background:rgba(255,255,255,.03); border-radius:8px; padding:8px 10px; color:var(--mu); font-size:.68rem; }
-    .twal .v { color:white; font-weight:600; display:block; margin-top:2px; }
-
-    /* SKILLS */
-    .sg { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:20px; }
-    .sc2 { background:var(--card); border:1px solid var(--b0); border-radius:24px; padding:26px 22px; backdrop-filter:blur(10px); transition:.3s; }
-    .sc2:hover { border-color:rgba(255,100,200,.3); transform:translateY(-4px); }
-    .si { font-size:1.7rem; margin-bottom:14px; }
-    .stitle { font-family:'Syne',sans-serif; font-weight:700; font-size:.98rem; color:var(--pk); margin-bottom:16px; }
-    .sitem { display:flex; gap:9px; align-items:center; color:#c0c0d8; font-size:.87rem; margin-bottom:9px; }
-    .sitem i { color:var(--pu); width:16px; font-size:.8rem; }
-
-    /* TIMELINE */
-    .tl { padding-left:32px; position:relative; }
-    .tl::before { content:''; position:absolute; left:0; top:0; bottom:0; width:2px; background:linear-gradient(180deg,var(--pk),var(--pu),transparent); }
-    .tli { position:relative; padding-bottom:52px; }
-    .tli::before { content:''; position:absolute; left:-38px; top:7px; width:12px; height:12px; border-radius:50%; background:var(--pk); box-shadow:0 0 14px var(--pk); }
-    .tld { font-family:'JetBrains Mono',monospace; color:var(--pk); font-size:.78rem; margin-bottom:4px; }
-    .tlc { font-family:'Syne',sans-serif; font-weight:800; font-size:1.55rem; margin-bottom:2px; }
-    .tlr { color:var(--mu); margin-bottom:18px; font-size:.93rem; }
-    .tll { list-style:none; }
-    .tll li { display:flex; gap:10px; color:#c0c0d8; margin-bottom:9px; font-size:.93rem; line-height:1.55; }
-    .tll li i { color:var(--pu); flex-shrink:0; margin-top:4px; font-size:.78rem; }
-
-    /* PHILOSOPHY */
-    .pb { background:var(--card); border:1px solid var(--b0); border-radius:36px; padding:64px; backdrop-filter:blur(14px); position:relative; overflow:hidden; }
-    .pb::before { content:'"'; position:absolute; top:-30px; left:20px; font-family:'Syne',sans-serif; font-size:18rem; font-weight:800; line-height:1; color:rgba(255,100,200,.03); pointer-events:none; z-index:0; }
-    .pbt { position:relative; z-index:1; font-size:clamp(1.05rem,1.9vw,1.28rem); color:#d0d0ec; line-height:1.95; }
-    .pbt p { margin-bottom:22px; }
-    .pbt p:last-child { margin-bottom:0; }
-    .pbt strong { color:white; }
-    .pbt em { font-style:normal; font-weight:600; background:linear-gradient(90deg,var(--pk),var(--pu)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
-
-    /* CONTACT */
-    .cg2 { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start; }
-    .clead { font-size:1.1rem; color:#c0c0e0; line-height:1.85; margin-bottom:40px; }
-    .clead strong { color:white; }
-    .clink { display:flex; align-items:center; gap:16px; padding:17px 22px; border-radius:18px; border:1px solid var(--b0); color:white; text-decoration:none; transition:.25s; margin-bottom:12px; background:rgba(255,255,255,.02); }
-    .clink:hover { border-color:var(--pk); background:rgba(255,100,200,.07); transform:translateX(6px); }
-    .clink i:first-child { font-size:1.2rem; color:var(--pk); width:26px; }
-    .clink .ar { color:var(--mu); margin-left:auto; font-size:.8rem; transition:.2s; }
-    .clink:hover .ar { color:var(--pk); transform:translateX(4px); }
-    .cll { font-size:.72rem; color:var(--mu); text-transform:uppercase; letter-spacing:1px; }
-    .clv { font-weight:600; font-size:.93rem; }
-    .ccard { background:var(--card); border:1px solid var(--b0); border-radius:28px; padding:38px; backdrop-filter:blur(14px); }
-    .ccard h3 { font-family:'Syne',sans-serif; font-weight:800; font-size:1.5rem; margin-bottom:14px; }
-    .ccard p { color:#b0b0d0; line-height:1.8; margin-bottom:24px; font-size:.93rem; }
-    .av { display:flex; align-items:center; gap:10px; font-family:'JetBrains Mono',monospace; font-size:.82rem; color:var(--gr); padding:10px 18px; background:rgba(61,255,160,.07); border-radius:60px; border:1px solid rgba(61,255,160,.25); width:fit-content; margin-bottom:28px; }
-    .avd { width:8px; height:8px; background:var(--gr); border-radius:50%; animation:bl 2.4s infinite; box-shadow:0 0 8px var(--gr); }
-    .stags { display:flex; flex-wrap:wrap; gap:8px; }
-    .stag { padding:5px 14px; border-radius:60px; border:1px solid var(--b0); background:rgba(255,255,255,.03); font-family:'JetBrains Mono',monospace; font-size:.68rem; color:var(--mu); }
-
-    footer { padding:36px 0; text-align:center; border-top:1px solid var(--b0); color:var(--mu); font-family:'JetBrains Mono',monospace; font-size:.75rem; }
-    footer span { color:var(--pk); }
-
-    @keyframes fu { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:none} }
-    @keyframes fi { from{opacity:0} to{opacity:1} }
-    .rev { opacity:0; transform:translateY(28px); transition:opacity .65s ease,transform .65s ease; }
-    .rev.in { opacity:1; transform:none; }
-    .d1{transition-delay:.1s} .d2{transition-delay:.2s} .d3{transition-delay:.3s} .d4{transition-delay:.4s}
-
-    @media(max-width:1000px){
-      .pg{grid-template-columns:1fr 1fr}
-      .pf{grid-template-columns:1fr}
-      .cv{border-left:none;border-top:1px solid var(--b0)}
-    }
-    @media(max-width:760px){
-      .wrap{padding:0 20px} section{padding:80px 0}
-      .ag{grid-template-columns:1fr} .pc{position:static}
-      .pg{grid-template-columns:1fr} .cg2{grid-template-columns:1fr}
-      .pb{padding:36px 26px} .sr{gap:32px}
-      .nl{display:none;flex-direction:column;position:absolute;top:68px;left:0;right:0;background:rgba(7,5,18,.97);border:1px solid var(--b1);border-radius:20px;padding:18px 24px;gap:0;z-index:999}
-      .nl.open{display:flex}
-      .nl li:not(:last-child){border-bottom:1px solid var(--b0)}
-      .nl a{padding:12px 0;font-size:.88rem;display:block}
-      .hb{display:flex}
-    }
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Adithya Sharma — AI Product Engineer</title>
+<meta name="description" content="AI Product Engineer. Intelligent fintech systems, LLM-powered tools, vision-based automation. 6.5+ years domain expertise, 5 live products."/>
+<meta property="og:title" content="Adithya Sharma — AI Product Engineer"/>
+<meta property="og:description" content="Bloomberg-grade quant tools, AI portfolio intelligence, LLM-powered QA automation — all live, all real."/>
+<meta property="og:url" content="https://rayr-06.github.io/"/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#07090D;--surface:#0C0F18;--card:#101522;--border:#192030;--bm:#223040;
+--gold:#C8963E;--gd:rgba(200,150,62,.09);--cream:#E6DBBE;
+--tx:#C8C4B0;--ts:#6E7A90;--td:#2E3A50;
+--green:#20B956;--teal:#0DA09A;--blue:#3B72F6;--amber:#E89B2A;--red:#E54444;
+--serif:'Playfair Display',Georgia,serif;--mono:'DM Mono',monospace;--sans:'DM Sans',sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font-family:var(--sans);line-height:1.6;overflow-x:hidden}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.02;
+background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E")}
+.gl{position:fixed;inset:0;pointer-events:none;z-index:0;
+background:linear-gradient(rgba(25,32,48,.22) 1px,transparent 1px),linear-gradient(90deg,rgba(25,32,48,.22) 1px,transparent 1px);
+background-size:64px 64px;
+mask-image:linear-gradient(180deg,transparent,rgba(0,0,0,.3) 15%,rgba(0,0,0,.3) 85%,transparent)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,5vw,80px);background:rgba(7,9,13,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.logo{font-family:var(--serif);font-size:18px;font-weight:900;color:var(--gold);letter-spacing:-.02em;text-decoration:none}
+.nl{display:flex;gap:24px;list-style:none}
+.nl a{font-family:var(--mono);font-size:10.5px;color:var(--ts);text-decoration:none;letter-spacing:.09em;text-transform:uppercase;transition:color .18s}
+.nl a:hover{color:var(--gold)}
+.nhire{color:var(--gold)!important;border:1px solid rgba(200,150,62,.35);padding:6px 15px;border-radius:3px;transition:background .18s!important}
+.nhire:hover{background:var(--gd)!important}
+@media(max-width:640px){.nl{display:none}}
+#hero{min-height:100vh;display:flex;align-items:center;padding:80px clamp(20px,5vw,80px) 60px;position:relative;overflow:hidden}
+.hg1{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(200,150,62,.055) 0%,transparent 70%);top:-80px;right:-150px;pointer-events:none}
+.hg2{position:absolute;width:350px;height:350px;border-radius:50%;background:radial-gradient(circle,rgba(13,160,154,.04) 0%,transparent 70%);bottom:60px;left:-80px;pointer-events:none}
+.hi{max-width:860px;position:relative;z-index:1}
+.hk{font-family:var(--mono);font-size:10.5px;color:var(--gold);letter-spacing:.2em;text-transform:uppercase;margin-bottom:22px;display:flex;align-items:center;gap:10px}
+.hk::before{content:'';width:22px;height:1px;background:var(--gold);display:block}
+.pd{width:6px;height:6px;border-radius:50%;background:var(--green);display:inline-block;animation:blink 2s ease-in-out infinite;margin-right:3px}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.8)}}
+h1{font-family:var(--serif);font-size:clamp(50px,8vw,90px);font-weight:900;line-height:.93;letter-spacing:-.03em;color:var(--cream);margin-bottom:6px}
+h1 em{font-style:italic;color:var(--gold)}
+.hr{font-family:var(--serif);font-size:clamp(17px,2.6vw,25px);font-weight:400;font-style:italic;color:var(--ts);margin-bottom:28px}
+.hd{font-size:15.5px;color:var(--ts);max-width:540px;line-height:1.8;margin-bottom:36px}
+.hd strong{color:var(--cream);font-weight:500}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.bp{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.07em;color:#07090D;background:var(--gold);border:none;padding:12px 26px;border-radius:3px;cursor:pointer;text-decoration:none;transition:opacity .18s,transform .12s;display:inline-flex;align-items:center;gap:7px}
+.bp:hover{opacity:.85;transform:translateY(-1px)}
+.bs{font-family:var(--mono);font-size:11px;font-weight:400;letter-spacing:.07em;color:var(--tx);background:transparent;border:1px solid var(--bm);padding:12px 26px;border-radius:3px;cursor:pointer;text-decoration:none;transition:border-color .18s,color .18s;display:inline-flex;align-items:center;gap:7px}
+.bs:hover{border-color:var(--gold);color:var(--gold)}
+.hs{display:flex;gap:36px;margin-top:52px;padding-top:36px;border-top:1px solid var(--border);flex-wrap:wrap}
+.sn{font-family:var(--serif);font-size:34px;font-weight:700;color:var(--cream);line-height:1;letter-spacing:-.02em}
+.sl{font-family:var(--mono);font-size:9.5px;color:var(--td);letter-spacing:.13em;text-transform:uppercase;margin-top:4px}
+section{padding:96px clamp(20px,5vw,80px);position:relative;z-index:1}
+.sk{font-family:var(--mono);font-size:10px;color:var(--gold);letter-spacing:.2em;text-transform:uppercase;margin-bottom:7px;display:flex;align-items:center;gap:9px}
+.sk::before{content:'';width:16px;height:1px;background:var(--gold);display:block}
+h2{font-family:var(--serif);font-size:clamp(34px,4.5vw,52px);font-weight:700;line-height:1.05;letter-spacing:-.02em;color:var(--cream);margin-bottom:14px}
+.ss{font-size:14.5px;color:var(--ts);max-width:480px;line-height:1.75;margin-bottom:52px}
+#about{background:var(--surface);border-top:1px solid var(--border)}
+.ag{display:grid;grid-template-columns:1.2fr 1fr;gap:52px;align-items:start}
+@media(max-width:760px){.ag{grid-template-columns:1fr}}
+.at p{font-size:15px;color:var(--ts);line-height:1.85;margin-bottom:16px}
+.at p strong{color:var(--cream);font-weight:500}
+.at p em{color:var(--gold);font-style:italic}
+.qf{background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:16px}
+.qfr{display:flex;padding:11px 16px;border-bottom:1px solid var(--border);font-size:12.5px;gap:12px}
+.qfr:last-child{border-bottom:none}
+.qfk{color:var(--td);font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;width:96px;flex-shrink:0;padding-top:1px}
+.qfv{color:var(--tx);font-weight:400}
+.qfv a{color:var(--gold);text-decoration:none}
+.pr{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.pill{font-family:var(--mono);font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;padding:3px 9px;border-radius:2px;background:var(--border);color:var(--ts);border:1px solid var(--bm)}
+#projects{border-top:1px solid var(--border)}
+.pg{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+@media(max-width:860px){.pg{grid-template-columns:1fr}}
+.pc{background:var(--card);padding:34px;display:flex;flex-direction:column;transition:background .18s}
+.pc:hover{background:#13192A}
+.pc.feat{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start}
+@media(max-width:860px){.pc.feat{grid-template-columns:1fr}}
+.pm{display:flex;align-items:center;gap:7px;margin-bottom:16px;flex-wrap:wrap}
+.tag{font-family:var(--mono);font-size:8.5px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:3px 7px;border-radius:2px}
+.tlv{background:rgba(32,185,86,.1);color:var(--green);border:1px solid rgba(32,185,86,.22)}
+.tfn{background:rgba(200,150,62,.08);color:var(--gold);border:1px solid rgba(200,150,62,.18)}
+.tai{background:rgba(13,160,154,.08);color:var(--teal);border:1px solid rgba(13,160,154,.18)}
+.tpw{background:rgba(59,114,246,.08);color:var(--blue);border:1px solid rgba(59,114,246,.18)}
+.tpy{background:rgba(110,122,144,.08);color:var(--ts);border:1px solid var(--bm)}
+.tqa{background:rgba(232,155,42,.08);color:var(--amber);border:1px solid rgba(232,155,42,.2)}
+.pt{font-family:var(--serif);font-size:23px;font-weight:700;color:var(--cream);line-height:1.1;margin-bottom:7px;letter-spacing:-.01em}
+.pl{font-size:12.5px;font-weight:300;color:var(--ts);margin-bottom:14px;font-style:italic}
+.pd2{font-size:13px;color:var(--ts);line-height:1.8;margin-bottom:18px;flex:1}
+.pd2 strong{color:var(--cream);font-weight:500}
+.pf{list-style:none;margin-bottom:20px}
+.pf li{font-family:var(--mono);font-size:11px;color:var(--ts);padding:6px 0;border-bottom:1px solid var(--border);display:flex;gap:8px;align-items:flex-start;line-height:1.5}
+.pf li:last-child{border-bottom:none}
+.pf li::before{content:'→';color:var(--gold);flex-shrink:0;margin-top:1px}
+.plk{display:flex;gap:7px;flex-wrap:wrap;margin-top:auto;padding-top:18px;border-top:1px solid var(--border)}
+.lb{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:7px 13px;border-radius:3px;transition:all .15s;display:inline-flex;align-items:center;gap:5px}
+.ll{background:rgba(32,185,86,.1);color:var(--green);border:1px solid rgba(32,185,86,.22)}
+.ll:hover{background:rgba(32,185,86,.18)}
+.lg{background:var(--border);color:var(--ts);border:1px solid var(--bm)}
+.lg:hover{color:var(--tx);border-color:rgba(200,150,62,.3)}
+.sv{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:20px;display:flex;flex-direction:column;gap:10px}
+.svr{display:flex;align-items:center;gap:10px}
+.svk{font-family:var(--mono);font-size:10px;color:var(--td);letter-spacing:.08em;text-transform:uppercase;width:70px;flex-shrink:0}
+.svb{height:4px;border-radius:2px;background:var(--bm);flex:1;overflow:hidden}
+.svf{height:100%;border-radius:2px}
+.svu{font-family:var(--mono);font-size:10px;color:var(--ts);width:28px;text-align:right}
+#skills{background:var(--surface);border-top:1px solid var(--border)}
+.skg{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+@media(max-width:900px){.skg{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.skg{grid-template-columns:1fr}}
+.skc{background:var(--card);padding:28px}
+.ski{font-size:22px;margin-bottom:14px;display:block}
+.skt{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--cream);margin-bottom:14px}
+.ski2{font-family:var(--mono);font-size:11px;color:var(--ts);padding:5px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:7px}
+.ski2:last-child{border-bottom:none}
+.sdd{width:4px;height:4px;border-radius:50%;flex-shrink:0}
+#experience{border-top:1px solid var(--border)}
+.ec{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:32px;margin-bottom:14px}
+.eh{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:18px;flex-wrap:wrap}
+.eco{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--cream)}
+.ep{font-family:var(--mono);font-size:10.5px;color:var(--gold);border:1px solid rgba(200,150,62,.25);padding:4px 11px;border-radius:2px;white-space:nowrap}
+.er{font-size:13px;color:var(--ts);margin-bottom:16px;font-style:italic}
+.ei{font-size:13.5px;color:var(--ts);padding:7px 0;border-bottom:1px solid var(--border);display:flex;gap:10px;line-height:1.6}
+.ei:last-child{border-bottom:none}
+.ei::before{content:'—';color:var(--gold);flex-shrink:0}
+.ei strong{color:var(--cream);font-weight:500}
+#approach{background:var(--surface);border-top:1px solid var(--border)}
+.apg{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:700px){.apg{grid-template-columns:1fr}}
+.apc{background:var(--card);border:1px solid var(--border);border-radius:9px;padding:24px}
+.apn{font-family:var(--mono);font-size:10px;color:var(--td);letter-spacing:.1em;margin-bottom:10px}
+.apt{font-family:var(--serif);font-size:19px;font-weight:700;color:var(--cream);margin-bottom:8px}
+.apb{font-size:13px;color:var(--ts);line-height:1.75}
+.apb strong{color:var(--cream);font-weight:500}
+.pq{background:var(--gd);border-left:2px solid var(--gold);padding:20px 24px;margin-top:36px;border-radius:0 8px 8px 0}
+.pqt{font-family:var(--serif);font-size:18px;font-weight:400;font-style:italic;color:var(--cream);line-height:1.55}
+#contact{border-top:1px solid var(--border)}
+.cg{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:640px){.cg{grid-template-columns:1fr}}
+.cc{background:var(--card);border:1px solid var(--border);border-radius:9px;padding:22px 24px;display:flex;align-items:center;gap:14px;text-decoration:none;transition:border-color .18s,background .18s}
+.cc:hover{border-color:rgba(200,150,62,.35);background:#13192A}
+.ci{width:40px;height:40px;border-radius:7px;background:var(--gd);border:1px solid rgba(200,150,62,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px}
+.cl{font-family:var(--mono);font-size:9.5px;color:var(--td);letter-spacing:.1em;text-transform:uppercase;margin-bottom:3px}
+.cv{font-size:13px;color:var(--tx);font-weight:400}
+.ca{background:rgba(32,185,86,.07);border:1px solid rgba(32,185,86,.18);border-radius:9px;padding:22px 28px;margin-top:36px;display:flex;gap:12px;align-items:flex-start}
+.cad{width:8px;height:8px;border-radius:50%;background:var(--green);flex-shrink:0;margin-top:4px;animation:blink 2s ease-in-out infinite}
+.cat{font-family:var(--mono);font-size:11px;color:var(--green);letter-spacing:.07em;text-transform:uppercase;margin-bottom:6px}
+.cab{font-size:13px;color:var(--ts);line-height:1.7}
+.cab strong{color:var(--cream);font-weight:500}
+.cts{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.ctg{font-family:var(--mono);font-size:9px;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:2px;background:rgba(32,185,86,.08);color:var(--green);border:1px solid rgba(32,185,86,.15)}
+footer{padding:28px clamp(20px,5vw,80px);border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.ft{font-family:var(--mono);font-size:10px;color:var(--td);letter-spacing:.07em}
+.ft a{color:var(--td);text-decoration:none}
+.ft a:hover{color:var(--gold)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+.fu{animation:fadeUp .5s ease both}
+.fu1{animation:fadeUp .5s .1s ease both}
+.fu2{animation:fadeUp .5s .18s ease both}
+.fu3{animation:fadeUp .5s .26s ease both}
+@media(prefers-reduced-motion:reduce){.fu,.fu1,.fu2,.fu3{animation:none!important}}
+</style>
 </head>
 <body>
+<div class="gl"></div>
 
-<div class="orb o1"></div>
-<div class="orb o2"></div>
-<div class="orb o3"></div>
-
-<!-- NAV -->
-<nav id="nav">
-  <div class="logo"><span class="lf">Adithya Sharma</span><span class="ls">AS_</span></div>
-  <ul class="nl" id="nl">
+<nav>
+  <a class="logo" href="#">AS_</a>
+  <ul class="nl">
     <li><a href="#about">About</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#experience">Experience</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#contact" class="nhire">Hire Me</a></li>
   </ul>
-  <div class="hb" id="hb"><span></span><span></span><span></span></div>
 </nav>
 
-<!-- HERO -->
 <section id="hero">
-  <div class="wrap">
-    <div class="hi">
-      <div class="badge"><span class="dot"></span> Open to new opportunities</div>
-      <div class="hn">
-        <span class="hl" data-t="Adithya">Adithya</span>
-        <span class="hl" data-t="Sharma">Sharma</span>
-      </div>
-      <div class="hr">QA Engineer<span class="sp">//</span>AI Builder<span class="sp">//</span>Automation Thinker</div>
-      <p class="hp">I ship <strong>real tools</strong> — an AI test-case generator, a Bloomberg-grade trading PWA, a vision-based mobile game QA system, and a full-stack studio management platform. With <strong>6.5+ years</strong> in gaming QA (Xbox · PlayStation · PC), I bridge the gap between quality assurance and intelligent engineering.</p>
-      <div class="cr">
-        <a href="#projects" class="btn bp"><i class="fas fa-rocket"></i> See My Work</a>
-        <a href="https://github.com/Rayr-06" target="_blank" class="btn bg"><i class="fab fa-github"></i> GitHub</a>
-        <a href="#contact" class="btn bg"><i class="fas fa-paper-plane"></i> Get In Touch</a>
-      </div>
-      <div class="sr">
-        <div><div class="sn counter" data-val="6.5" data-dec="1" data-sfx="+">0</div><div class="sl">Years in QA</div></div>
-        <div><div class="sn counter" data-val="5"   data-dec="0" data-sfx="">0</div><div class="sl">Projects Shipped</div></div>
-        <div><div class="sn counter" data-val="3"   data-dec="0" data-sfx="">0</div><div class="sl">Gaming Platforms</div></div>
-        <div><div class="sn counter" data-val="12"  data-dec="0" data-sfx="">0</div><div class="sl">Quant Algorithms</div></div>
-      </div>
+  <div class="hg1"></div><div class="hg2"></div>
+  <div class="hi">
+    <div class="hk fu"><span class="pd"></span>Open to new opportunities</div>
+    <h1 class="fu1">Adithya<br/><em>Sharma</em></h1>
+    <p class="hr fu1">AI Product Engineer</p>
+    <p class="hd fu2">I build <strong>real AI-powered products</strong> — a Bloomberg-grade quant trading PWA, an Indian portfolio intelligence engine with live market data and Monte Carlo simulation, an LLM-powered test automation platform, and a vision-based game testing system. <strong>6.5+ years of domain expertise. Every project is live.</strong></p>
+    <div class="btns fu3">
+      <a href="#projects" class="bp">See My Work ↓</a>
+      <a href="https://github.com/Rayr-06" target="_blank" rel="noreferrer" class="bs">GitHub →</a>
+      <a href="#contact" class="bs">Get In Touch</a>
+    </div>
+    <div class="hs fu3">
+      <div><div class="sn" id="c1">6.5+</div><div class="sl">Years in industry</div></div>
+      <div><div class="sn" id="c2">5</div><div class="sl">Live products shipped</div></div>
+      <div><div class="sn" id="c3">12</div><div class="sl">Quant algorithms</div></div>
+      <div><div class="sn" id="c4">3</div><div class="sl">AI platforms built</div></div>
     </div>
   </div>
-  <div class="sc"><span>Scroll</span><div class="ad"></div></div>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
-  <div class="wrap">
-    <div class="rev">
-      <div class="ey"><span>01 · Who I Am</span></div>
-      <h2 class="st">About Me</h2>
+  <div class="sk">01 · Who I Am</div>
+  <h2>Built from the<br/><em>inside out</em></h2>
+  <div class="ag">
+    <div class="at">
+      <p>Most developers build for requirements they read in a doc. I spent <strong>6.5 years inside real software products</strong> — testing gaming environments across Xbox, PlayStation and PC — which means I understand failure modes, edge cases, and quality problems from first principles. That is a different kind of knowledge.</p>
+      <p>At some point I realised the tools I needed to do my job well <em>didn't exist</em>. So I built them. First a QA automation platform powered by LLM reasoning. Then a quant trading PWA running 12 algorithms simultaneously across global markets. Then an AI portfolio intelligence engine for Indian retail investors with live AMFI data, Monte Carlo simulation, and real XIRR calculation.</p>
+      <p>Every project I've shipped solves a <strong>real problem I personally encountered</strong>. That's the only kind of product worth building — and the only kind of engineer worth hiring.</p>
+      <p>I work across the full stack: <strong>React 18, Python, Flask, and the complete LLM integration layer</strong> (Claude AI, Groq Llama 3.3). I understand production deployment, CI/CD pipelines via GitHub Actions, and what it takes to build something that runs in the real world under real users.</p>
     </div>
-    <div class="ag">
-      <div class="al rev d1">
-        <p>I'm a <strong>QA Engineer with 6.5+ years of experience</strong> in software testing, working primarily on gaming platforms — Xbox, PlayStation, and PC — at Indium Software.</p>
-        <p>Over time I realized testing should not just <em>find</em> problems — it should build <strong>intelligent systems that prevent them</strong>. That belief pushed me from manual QA into building AI-powered tools that automate the hardest parts of quality assurance.</p>
-        <p>Today I build across domains: <strong>AI testing tools, fintech intelligence platforms, mobile game automation, and full-stack web apps</strong>. Every project I ship solves a real problem I've personally encountered in the industry.</p>
-        <div class="chips">
-          <span class="chip">Software QA</span><span class="chip">AI Tool Design</span><span class="chip">React / Vite</span>
-          <span class="chip">Python / Flask</span><span class="chip">PWA Development</span><span class="chip">Prompt Engineering</span>
-          <span class="chip">Fintech Systems</span><span class="chip">Vision-Based Testing</span>
-        </div>
+    <div>
+      <div class="qf">
+        <div class="qfr"><span class="qfk">Location</span><span class="qfv">Bengaluru, India</span></div>
+        <div class="qfr"><span class="qfk">Current</span><span class="qfv">Indium Software · Test Engineer · May 2022–Present</span></div>
+        <div class="qfr"><span class="qfk">Domain</span><span class="qfv">Gaming QA · Fintech · AI Tooling</span></div>
+        <div class="qfr"><span class="qfk">Stack</span><span class="qfv">React · Python · Claude AI · Groq · Vite · Flask</span></div>
+        <div class="qfr"><span class="qfk">GitHub</span><span class="qfv"><a href="https://github.com/Rayr-06" target="_blank" rel="noreferrer">github.com/Rayr-06</a></span></div>
+        <div class="qfr"><span class="qfk">LinkedIn</span><span class="qfv"><a href="https://linkedin.com/in/adithya-sharma-qa-engineer" target="_blank" rel="noreferrer">adithya-sharma-qa-engineer</a></span></div>
       </div>
-      <div class="pc rev d2">
-        <div class="pct"><i class="fas fa-id-card"></i> &nbsp;Quick Profile</div>
-        <div class="pr"><i class="fas fa-map-marker-alt"></i><div><strong>Bengaluru, India</strong><span>India's Silicon Valley</span></div></div>
-        <div class="pr"><i class="fas fa-building"></i><div><strong>Indium Software</strong><span>Test Engineer · May 2022 – Present</span></div></div>
-        <div class="pr"><i class="fas fa-gamepad"></i><div><strong>Gaming QA Specialist</strong><span>Xbox · PlayStation · PC</span></div></div>
-        <div class="pr"><i class="fab fa-python"></i><div><strong>Python & JavaScript</strong><span>Primary build languages</span></div></div>
-        <div class="pr"><i class="fab fa-github"></i><div><strong>github.com/Rayr-06</strong><span>5 public repositories</span></div></div>
-        <div class="pr"><i class="fas fa-bolt"></i><div><strong>rayr-06.github.io</strong><span>Live deployed projects</span></div></div>
+      <div class="pr">
+        <span class="pill">AI Product Engineering</span><span class="pill">React 18 · Vite</span>
+        <span class="pill">Python · Flask</span><span class="pill">LLM Integration</span>
+        <span class="pill">PWA Development</span><span class="pill">Fintech Systems</span>
+        <span class="pill">Vision-Based Testing</span><span class="pill">CI/CD · GitHub Actions</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects">
-  <div class="wrap">
-    <div class="rev">
-      <div class="ey"><span>02 · What I've Built</span></div>
-      <h2 class="st">All Projects</h2>
-    </div>
-    <div class="pg">
+  <div class="sk">02 · What I've Built</div>
+  <h2>Live products,<br/><em>real problems solved</em></h2>
+  <p class="ss">Every project below is deployed, publicly accessible, and solves a problem I personally experienced. No mockups. No concept work. Real code, running in production.</p>
 
-      <!-- RAYR MOBILE — FEATURED -->
-      <div class="card pf rev">
-        <div class="cb">
-          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;">
-            <span class="cat cfin">⚡ Fintech · PWA</span>
-            <span class="cat cnew">✦ Live Now</span>
-          </div>
-          <div class="cn">RAYR Mobile</div>
-          <div class="cs">Bloomberg-grade quant analysis · Free for everyone</div>
-          <p class="cd">An installable PWA running <strong style="color:white">12 quantitative algorithms</strong> across 260 days of data — the same models used by hedge funds. NSE/BSE, US stocks, Forex, Crypto, Commodities &amp; F&amp;O. Gives traders one plain-English verdict with entry/exit levels and exact position sizing for their budget.</p>
-          <div class="cpts">
-            <div class="cpt"><i class="fas fa-chart-line"></i> 12-algo quant engine (RSI, MACD, Bollinger, ADX, Fibonacci...)</div>
-            <div class="cpt"><i class="fas fa-mobile-alt"></i> Installable PWA — Android, iPhone &amp; desktop</div>
-            <div class="cpt"><i class="fas fa-briefcase"></i> Full portfolio tracker with P&amp;L, risk score &amp; NIFTY50 benchmark</div>
-            <div class="cpt"><i class="fas fa-shield-alt"></i> Funded trader mode for FTMO, FundedNext &amp; prop firms</div>
-          </div>
-          <div class="ctags">
-            <span class="ctag">React 18</span><span class="ctag">Vite</span><span class="ctag">Claude AI</span>
-            <span class="ctag">PWA</span><span class="ctag">GitHub Pages</span><span class="ctag">Custom TA Engine</span>
-          </div>
-          <div class="clinks">
-            <a href="https://rayr-06.github.io/rayr-mobile" target="_blank" class="cl cta"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-            <a href="https://github.com/Rayr-06/rayr-mobile" target="_blank" class="cl"><i class="fab fa-github"></i> GitHub</a>
-          </div>
-        </div>
-        <div class="cv">
-          <div class="tw">
-            <div class="twh"><span class="twl">⚡ RAYR</span><span class="tws">Score: 78 · BUY</span></div>
-            <div class="twr"><span>NIFTY50</span><span class="up">▲ 22,847 +0.62%</span></div>
-            <div class="twr"><span>RELIANCE</span><span class="up">▲ 2,934 +1.18%</span></div>
-            <div class="twr"><span>AAPL</span><span class="up">▲ 218.40 +0.44%</span></div>
-            <div class="twr"><span>BTC/USD</span><span class="dn">▼ 94,210 -0.31%</span></div>
-            <div class="twr"><span>EUR/USD</span><span class="up">▲ 1.0842 +0.08%</span></div>
-            <div class="twa">
-              <div class="twal">RSI(14)<span class="v">62.4 · Neutral</span></div>
-              <div class="twal">MACD<span class="v">+0.82 · Bull</span></div>
-              <div class="twal">ADX(14)<span class="v">34.1 · Strong</span></div>
-              <div class="twal">ATR<span class="v">210 · Normal</span></div>
-              <div class="twal">Stoch K<span class="v">71.2 · OB</span></div>
-              <div class="twal">Vol Ratio<span class="v">1.34 · High</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <div class="pg">
 
-      <!-- QA FORGE -->
-      <div class="card rev d1">
-        <div class="cb">
-          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;">
-            <span class="cat cqa">🧪 AI · QA Tooling</span>
-            <span class="cat cnew">✦ Live Now</span>
-          </div>
-          <div class="cn">QA Forge</div>
-          <div class="cs">AI-Powered Test Case Generation</div>
-          <p class="cd">Converts product requirements and UI screenshots into structured, professional test cases. Built specifically for slot game QA teams — slashes manual test design time by automating the most repetitive part of QA.</p>
-          <div class="cpts">
-            <div class="cpt"><i class="fas fa-bolt"></i> Requirements → full test suite in seconds</div>
-            <div class="cpt"><i class="fas fa-eye"></i> Visual UI analysis for edge-case detection</div>
-            <div class="cpt"><i class="fas fa-layer-group"></i> Scalable test logic for gaming domains</div>
-          </div>
-          <div class="ctags">
-            <span class="ctag">JavaScript</span><span class="ctag">Claude AI</span><span class="ctag">QA Automation</span><span class="ctag">Prompt Engineering</span>
-          </div>
-          <div class="clinks">
-            <a href="https://rayr-06.github.io/qa-forge" target="_blank" class="cl cta"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-            <a href="https://github.com/Rayr-06/qa-forge" target="_blank" class="cl"><i class="fab fa-github"></i> GitHub</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- RAYR VISION QA -->
-      <div class="card rev d2">
-        <div class="cb">
-          <span class="cat cpy">🐍 Python · Vision AI</span>
-          <div class="cn">RAYR Vision QA</div>
-          <div class="cs">AI Mobile Game Test Automation</div>
-          <p class="cd">Vision-based testing automation for Android games. Uses computer vision to analyze game states, detect UI anomalies, and validate gameplay flows without hardcoded selectors — tackling the hardest challenge in mobile game QA.</p>
-          <div class="cpts">
-            <div class="cpt"><i class="fas fa-eye"></i> Screen-state recognition via computer vision</div>
-            <div class="cpt"><i class="fas fa-mobile-alt"></i> Automated Android game test execution</div>
-            <div class="cpt"><i class="fas fa-bug"></i> UI anomaly &amp; regression detection</div>
-          </div>
-          <div class="ctags">
-            <span class="ctag">Python</span><span class="ctag">Computer Vision</span><span class="ctag">Android</span><span class="ctag">Game Testing</span>
-          </div>
-          <div class="clinks">
-            <a href="https://github.com/Rayr-06/rayr" target="_blank" class="cl"><i class="fab fa-github"></i> GitHub</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- DATBEATSAMJ -->
-      <div class="card rev d1">
-        <div class="cb">
-          <span class="cat cpwa">🎵 Python · Full-Stack</span>
-          <div class="cn">DatBeatsAmJ</div>
-          <div class="cs">Vocal Studio Management Platform</div>
-          <p class="cd">A full-stack web app managing a vocal teaching studio — student enrollment, lesson scheduling, progress tracking, and teacher-student communication. Built with Flask, SQLAlchemy, and REST routes.</p>
-          <div class="cpts">
-            <div class="cpt"><i class="fas fa-users"></i> Multi-role dashboards: teacher &amp; student</div>
-            <div class="cpt"><i class="fas fa-calendar-alt"></i> Scheduling, tracking &amp; progress logs</div>
-            <div class="cpt"><i class="fas fa-database"></i> Flask · SQLAlchemy · REST API backend</div>
-          </div>
-          <div class="ctags">
-            <span class="ctag">Python</span><span class="ctag">Flask</span><span class="ctag">SQLAlchemy</span><span class="ctag">C++</span><span class="ctag">Full-Stack</span>
-          </div>
-          <div class="clinks">
-            <a href="https://github.com/Rayr-06/datbeatsamj" target="_blank" class="cl"><i class="fab fa-github"></i> GitHub</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- RAYR TRADING DESKTOP -->
-      <div class="card rev d2">
-        <div class="cb">
-          <span class="cat cfin">📊 AI · Fintech</span>
-          <div class="cn">RAYR Trading Intelligence</div>
-          <div class="cs">AI-Driven Portfolio Analysis Platform</div>
-          <p class="cd">The desktop predecessor to RAYR Mobile. AI-powered financial intelligence tool analyzing investment portfolios — allocation, risk exposure, and long-term trends. Combines data visualization with Claude AI for quarterly portfolio reviews.</p>
-          <div class="cpts">
-            <div class="cpt"><i class="fas fa-chart-pie"></i> Portfolio dashboard with allocation breakdown</div>
-            <div class="cpt"><i class="fas fa-brain"></i> AI-generated quarterly performance reviews</div>
-            <div class="cpt"><i class="fas fa-shield-alt"></i> Risk detection &amp; rebalancing signals</div>
-          </div>
-          <div class="ctags">
-            <span class="ctag">React</span><span class="ctag">Claude AI</span><span class="ctag">Financial Data</span><span class="ctag">Visualizations</span>
-          </div>
-          <div class="clinks">
-            <a href="https://github.com/Rayr-06" target="_blank" class="cl"><i class="fab fa-github"></i> GitHub</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills">
-  <div class="wrap">
-    <div class="rev">
-      <div class="ey"><span>03 · What I Know</span></div>
-      <h2 class="st">Skills</h2>
-    </div>
-    <div class="sg">
-      <div class="sc2 rev"><div class="si">🧪</div><div class="stitle">Testing &amp; QA</div>
-        <div class="sitem"><i class="fas fa-check-circle"></i> Manual &amp; Exploratory Testing</div>
-        <div class="sitem"><i class="fas fa-check-circle"></i> Test Case Design</div>
-        <div class="sitem"><i class="fas fa-check-circle"></i> Regression Testing</div>
-        <div class="sitem"><i class="fas fa-check-circle"></i> Bug Tracking &amp; Triage</div>
-        <div class="sitem"><i class="fas fa-gamepad"></i> Gaming Platform QA</div>
-      </div>
-      <div class="sc2 rev d1"><div class="si">⚙️</div><div class="stitle">Tools &amp; Automation</div>
-        <div class="sitem"><i class="fas fa-plug"></i> API Testing · Postman</div>
-        <div class="sitem"><i class="fab fa-git-alt"></i> Git &amp; GitHub</div>
-        <div class="sitem"><i class="fas fa-infinity"></i> CI/CD Workflows</div>
-        <div class="sitem"><i class="fas fa-eye"></i> Vision-Based Automation</div>
-        <div class="sitem"><i class="fas fa-robot"></i> AI-Assisted QA</div>
-      </div>
-      <div class="sc2 rev d2"><div class="si">💻</div><div class="stitle">Development</div>
-        <div class="sitem"><i class="fab fa-react"></i> React 18 · Vite</div>
-        <div class="sitem"><i class="fab fa-python"></i> Python · Flask</div>
-        <div class="sitem"><i class="fas fa-mobile-alt"></i> PWA Development</div>
-        <div class="sitem"><i class="fas fa-database"></i> SQLAlchemy · REST APIs</div>
-        <div class="sitem"><i class="fas fa-palette"></i> Frontend UI Design</div>
-      </div>
-      <div class="sc2 rev d3"><div class="si">🧠</div><div class="stitle">AI &amp; Domain</div>
-        <div class="sitem"><i class="fas fa-brain"></i> Prompt Engineering</div>
-        <div class="sitem"><i class="fas fa-chart-bar"></i> Quant Finance (12 algos)</div>
-        <div class="sitem"><i class="fas fa-chart-line"></i> Technical Analysis</div>
-        <div class="sitem"><i class="fas fa-microchip"></i> AI Workflow Design</div>
-        <div class="sitem"><i class="fas fa-cube"></i> Tool Architecture</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="wrap">
-    <div class="rev">
-      <div class="ey"><span>04 · Career</span></div>
-      <h2 class="st">Experience</h2>
-    </div>
-    <div class="tl rev">
-      <div class="tli">
-        <div class="tld">May 2022 – Present &nbsp;·&nbsp; 3+ Years</div>
-        <div class="tlc">Indium Software</div>
-        <div class="tlr">Test Engineer &nbsp;·&nbsp; Bengaluru, India</div>
-        <ul class="tll">
-          <li><i class="fas fa-chevron-right"></i> Testing gaming environments across Xbox, PlayStation, and PC with structured test planning</li>
-          <li><i class="fas fa-chevron-right"></i> Designing test scenarios, edge case coverage, and validation workflows for complex interactive systems</li>
-          <li><i class="fas fa-chevron-right"></i> Managing end-to-end defect lifecycle: identification, tracking, escalation, and verification</li>
-          <li><i class="fas fa-chevron-right"></i> Proposing and piloting QA workflow automation ideas to reduce manual test cycle time</li>
-          <li><i class="fas fa-chevron-right"></i> Collaborating closely with development, design, and product teams across agile sprint cycles</li>
+    <!-- FEATURED: RAYR Fin -->
+    <div class="pc feat">
+      <div>
+        <div class="pm"><span class="tag tlv">Live</span><span class="tag tfn">Fintech · India</span><span class="tag tai">AI · LLM</span><span class="tag tpw">React · Vite</span></div>
+        <div class="pt">RAYR — Portfolio Intelligence Engine</div>
+        <div class="pl">Bloomberg-grade AI analysis for Indian retail investors. Free, private, zero backend.</div>
+        <p class="pd2">The most technically complex project I've shipped. A <strong>privacy-first AI fintech platform</strong> — everything runs in the browser, nothing leaves your device. Live AMFI fund NAV data, <strong>real XIRR calculation</strong> via Newton-Raphson, Monte Carlo simulation with 1,000 paths, and Dr. RAYR — an AI advisor powered by Groq Llama 3.3 with full portfolio context injected. Health scoring, sector exposure analysis, stress-testing, and expense drag calculation.</p>
+        <ul class="pf">
+          <li>Real XIRR engine — same method used by Groww and Zerodha</li>
+          <li>Monte Carlo: 1,000 paths, 5 percentile bands, probability of ₹1Cr / ₹2Cr</li>
+          <li>Live NAV from AMFI API — no key required, no cost</li>
+          <li>Dr. RAYR: Groq Llama 3.3 with full portfolio context in system prompt</li>
+          <li>GitHub Actions CI/CD — every push auto-deploys to GitHub Pages</li>
         </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PHILOSOPHY -->
-<section id="philosophy">
-  <div class="wrap">
-    <div class="rev">
-      <div class="ey"><span>05 · How I Think</span></div>
-      <h2 class="st">My Approach</h2>
-    </div>
-    <div class="pb rev">
-      <div class="pbt">
-        <p>Most software testing is reactive — you find bugs <em>after</em> they're written. I think that's the wrong place to spend engineering effort.</p>
-        <p>My goal is to build <em>intelligent systems</em> that catch problems before they reach users — tools that understand requirements, generate test coverage automatically, and flag anomalies through vision and AI rather than hardcoded scripts.</p>
-        <p>The same philosophy drives RAYR: instead of reacting to market moves with gut instinct, <strong>run 12 algorithms simultaneously, weigh their signals, and give traders one clear, reasoned decision</strong>. That's the standard Jim Simons used at Renaissance Technologies — and it's the standard I hold my tools to.</p>
-        <p><em>Quality is not a phase at the end of development. It's a system you design from the beginning.</em></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="wrap">
-    <div class="rev">
-      <div class="ey"><span>06 · Let's Talk</span></div>
-      <h2 class="st">Get In Touch</h2>
-    </div>
-    <div class="cg2">
-      <div class="rev">
-        <p class="clead">I'm open to <strong>full-time roles, freelance projects, and collaborations</strong> in QA engineering, AI tooling, and fintech. I respond to every message.</p>
-        <a href="mailto:sharmaadithya1995@gmail.com" class="clink"><i class="fas fa-envelope"></i><div><div class="cll">Email</div><div class="clv">sharmaadithya1995@gmail.com</div></div><i class="fas fa-arrow-right ar"></i></a>
-        <a href="https://github.com/Rayr-06" target="_blank" class="clink"><i class="fab fa-github"></i><div><div class="cll">GitHub</div><div class="clv">github.com/Rayr-06</div></div><i class="fas fa-arrow-right ar"></i></a>
-        <a href="https://linkedin.com/in/adithya-sharma-qa-engineer" target="_blank" class="clink"><i class="fab fa-linkedin"></i><div><div class="cll">LinkedIn</div><div class="clv">adithya-sharma-qa-engineer</div></div><i class="fas fa-arrow-right ar"></i></a>
-        <a href="https://rayr-06.github.io/rayr-mobile" target="_blank" class="clink"><i class="fas fa-bolt"></i><div><div class="cll">Live Project</div><div class="clv">RAYR Mobile — Try it now</div></div><i class="fas fa-arrow-right ar"></i></a>
-        <a href="https://rayr-06.github.io" target="_blank" class="clink"><i class="fas fa-globe"></i><div><div class="cll">Portfolio</div><div class="clv">rayr-06.github.io</div></div><i class="fas fa-arrow-right ar"></i></a>
-      </div>
-      <div class="ccard rev d1">
-        <h3>Open to Opportunities</h3>
-        <p>QA engineering roles, AI tooling projects, fintech collaborations, or just a conversation about building intelligent systems — reach out, I respond to everything.</p>
-        <div class="av"><div class="avd"></div> Currently available</div>
-        <div class="stags">
-          <span class="stag">QA Engineering</span><span class="stag">AI Tooling</span><span class="stag">React PWAs</span>
-          <span class="stag">Python / Flask</span><span class="stag">Fintech</span><span class="stag">Gaming QA</span><span class="stag">Vision Testing</span>
+        <div class="plk">
+          <a href="https://rayr-06.github.io/rayr-Fin/" target="_blank" rel="noreferrer" class="lb ll">↗ Live Demo</a>
+          <a href="https://github.com/Rayr-06/rayr-Fin" target="_blank" rel="noreferrer" class="lb lg">GitHub</a>
         </div>
+      </div>
+      <div>
+        <div class="sv">
+          <div style="font-family:var(--mono);font-size:9.5px;color:var(--td);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px">Technical depth</div>
+          <div class="svr"><span class="svk">Frontend</span><div class="svb"><div class="svf" style="width:95%;background:var(--gold)"></div></div><span class="svu">95%</span></div>
+          <div class="svr"><span class="svk">AI / LLM</span><div class="svb"><div class="svf" style="width:88%;background:var(--teal)"></div></div><span class="svu">88%</span></div>
+          <div class="svr"><span class="svk">Algorithms</span><div class="svb"><div class="svf" style="width:82%;background:var(--blue)"></div></div><span class="svu">82%</span></div>
+          <div class="svr"><span class="svk">Data APIs</span><div class="svb"><div class="svf" style="width:90%;background:var(--amber)"></div></div><span class="svu">90%</span></div>
+          <div class="svr"><span class="svk">CI/CD</span><div class="svb"><div class="svf" style="width:85%;background:var(--green)"></div></div><span class="svu">85%</span></div>
+        </div>
+        <div style="background:var(--gd);border:1px solid rgba(200,150,62,.18);border-radius:8px;padding:18px;margin-top:12px">
+          <div style="font-family:var(--mono);font-size:9.5px;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px">Why this matters</div>
+          <div style="font-size:12.5px;color:var(--ts);line-height:1.7">India has 50M+ mutual fund investors. Every existing app requires login, sends data to servers, and shows estimated returns. RAYR Fin calculates real XIRR from actual purchase data and runs entirely in the browser — no server, no login, no data exposure.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RAYR Mobile -->
+    <div class="pc">
+      <div class="pm"><span class="tag tlv">Live</span><span class="tag tfn">Fintech</span><span class="tag tpw">PWA · Installable</span></div>
+      <div class="pt">RAYR Mobile</div>
+      <div class="pl">12-algorithm quant engine. Runs on any device.</div>
+      <p class="pd2">A <strong>Bloomberg-grade quant trading PWA</strong> running 12 technical analysis algorithms simultaneously — RSI, MACD, Bollinger Bands, ADX, Fibonacci, and more — across NSE/BSE, US stocks, Forex, Crypto, and F&amp;O. One plain-English verdict with entry/exit levels and position sizing for any budget. Installable on Android, iPhone, and desktop.</p>
+      <ul class="pf">
+        <li>12-algo consensus engine — same models used by professional traders</li>
+        <li>Funded trader mode for FTMO, FundedNext &amp; prop firms</li>
+        <li>Full portfolio tracker with P&amp;L and NIFTY50 benchmark</li>
+        <li>Installable PWA — works offline after first load</li>
+      </ul>
+      <div class="plk">
+        <a href="https://rayr-06.github.io/rayr-mobile" target="_blank" rel="noreferrer" class="lb ll">↗ Live Demo</a>
+        <a href="https://github.com/Rayr-06/rayr-mobile" target="_blank" rel="noreferrer" class="lb lg">GitHub</a>
+      </div>
+    </div>
+
+    <!-- QA Forge -->
+    <div class="pc">
+      <div class="pm"><span class="tag tlv">Live</span><span class="tag tai">AI · LLM</span><span class="tag tqa">Test Automation</span></div>
+      <div class="pt">QA Forge</div>
+      <div class="pl">Requirements → complete test suite, powered by LLM reasoning.</div>
+      <p class="pd2">Converts product requirements and UI context into <strong>complete, structured test suites using LLM reasoning</strong>. Built from 6 years of watching QA teams spend 40% of their time writing test cases that could be generated in seconds. Handles edge cases, negative flows, and regression scenarios that manual test writers routinely miss.</p>
+      <ul class="pf">
+        <li>Requirements → full professional test suite in under 60 seconds</li>
+        <li>Visual UI context analysis for boundary and edge-case detection</li>
+        <li>Prompt engineering designed for structured, repeatable output</li>
+        <li>Applicable to any software domain — not domain-locked</li>
+      </ul>
+      <div class="plk">
+        <a href="https://rayr-06.github.io/qa-forge" target="_blank" rel="noreferrer" class="lb ll">↗ Live Demo</a>
+        <a href="https://github.com/Rayr-06/qa-forge" target="_blank" rel="noreferrer" class="lb lg">GitHub</a>
+      </div>
+    </div>
+
+    <!-- RAYR Vision -->
+    <div class="pc">
+      <div class="pm"><span class="tag tai">Computer Vision</span><span class="tag tpy">Python</span><span class="tag tqa">Android Automation</span></div>
+      <div class="pt">RAYR Vision QA</div>
+      <div class="pl">Vision-based automation for games — no UI selectors needed.</div>
+      <p class="pd2">Tackles the hardest problem in mobile game testing: <strong>games have no accessible UI tree</strong>. Traditional automation tools fail completely here. RAYR Vision uses computer vision to recognise game states, detect UI anomalies, and validate gameplay flows without any hardcoded selectors — making it robust across build changes.</p>
+      <ul class="pf">
+        <li>Screen-state recognition via CV — no selector dependency whatsoever</li>
+        <li>Automated Android game test execution end-to-end</li>
+        <li>Visual regression and UI anomaly detection across builds</li>
+      </ul>
+      <div class="plk">
+        <a href="https://github.com/Rayr-06/rayr" target="_blank" rel="noreferrer" class="lb lg">GitHub →</a>
+      </div>
+    </div>
+
+    <!-- DatBeatsAmJ -->
+    <div class="pc">
+      <div class="pm"><span class="tag tpy">Python · Flask</span><span class="tag tpy">Full Stack</span><span class="tag tpy">SQLAlchemy</span></div>
+      <div class="pt">DatBeatsAmJ</div>
+      <div class="pl">Vocal studio management. Flask + SQLAlchemy + REST API.</div>
+      <p class="pd2">A full-stack web application managing a vocal teaching studio — student enrollment, lesson scheduling, progress tracking, and communication. Demonstrates <strong>multi-role system design, REST API architecture, and relational database modelling</strong> — the fundamentals that underpin every serious web application.</p>
+      <ul class="pf">
+        <li>Multi-role dashboards: separate teacher and student views</li>
+        <li>Scheduling, lesson tracking, and progress logs</li>
+        <li>Flask · SQLAlchemy · REST API · C++ audio processing integration</li>
+      </ul>
+      <div class="plk">
+        <a href="https://github.com/Rayr-06/datbeatsamj" target="_blank" rel="noreferrer" class="lb lg">GitHub →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="skills">
+  <div class="sk">03 · What I Know</div>
+  <h2>Stack &amp; <em>Skills</em></h2>
+  <p class="ss">Built through shipping real products, not accumulating certificates.</p>
+  <div class="skg">
+    <div class="skc">
+      <span class="ski">⚡</span>
+      <div class="skt">AI &amp; LLM Engineering</div>
+      <div class="ski2"><span class="sdd" style="background:var(--gold)"></span>Claude AI · Anthropic API</div>
+      <div class="ski2"><span class="sdd" style="background:var(--gold)"></span>Groq — Llama 3.3 70B</div>
+      <div class="ski2"><span class="sdd" style="background:var(--gold)"></span>Prompt Engineering</div>
+      <div class="ski2"><span class="sdd" style="background:var(--gold)"></span>LLM Product Architecture</div>
+      <div class="ski2"><span class="sdd" style="background:var(--gold)"></span>AI Tool Design &amp; UX</div>
+    </div>
+    <div class="skc">
+      <span class="ski">💻</span>
+      <div class="skt">Frontend Development</div>
+      <div class="ski2"><span class="sdd" style="background:var(--teal)"></span>React 18 · Vite</div>
+      <div class="ski2"><span class="sdd" style="background:var(--teal)"></span>PWA Development</div>
+      <div class="ski2"><span class="sdd" style="background:var(--teal)"></span>Recharts · Data Visualisation</div>
+      <div class="ski2"><span class="sdd" style="background:var(--teal)"></span>Responsive · Mobile-first</div>
+      <div class="ski2"><span class="sdd" style="background:var(--teal)"></span>GitHub Actions CI/CD</div>
+    </div>
+    <div class="skc">
+      <span class="ski">🐍</span>
+      <div class="skt">Backend &amp; Automation</div>
+      <div class="ski2"><span class="sdd" style="background:var(--blue)"></span>Python · Flask</div>
+      <div class="ski2"><span class="sdd" style="background:var(--blue)"></span>SQLAlchemy · REST APIs</div>
+      <div class="ski2"><span class="sdd" style="background:var(--blue)"></span>Computer Vision (OpenCV)</div>
+      <div class="ski2"><span class="sdd" style="background:var(--blue)"></span>Android Test Automation</div>
+      <div class="ski2"><span class="sdd" style="background:var(--blue)"></span>API Integration &amp; Pipelines</div>
+    </div>
+    <div class="skc">
+      <span class="ski">🎯</span>
+      <div class="skt">Domain Expertise</div>
+      <div class="ski2"><span class="sdd" style="background:var(--amber)"></span>Fintech &amp; Quant Finance</div>
+      <div class="ski2"><span class="sdd" style="background:var(--amber)"></span>Technical Analysis · 12 Algos</div>
+      <div class="ski2"><span class="sdd" style="background:var(--amber)"></span>Gaming Platform QA</div>
+      <div class="ski2"><span class="sdd" style="background:var(--amber)"></span>Software Quality Systems</div>
+      <div class="ski2"><span class="sdd" style="background:var(--amber)"></span>Xbox · PlayStation · PC</div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="sk">04 · Career</div>
+  <h2>Where I've <em>worked</em></h2>
+  <div class="ec">
+    <div class="eh">
+      <div><div class="eco">Indium Software</div><div class="er">Test Engineer → AI Product Builder · Bengaluru, India</div></div>
+      <div class="ep">May 2022 – Present · 3+ Years</div>
+    </div>
+    <div class="ei">Delivered structured test planning across <strong>Xbox, PlayStation, and PC gaming environments</strong> — 6.5 years total industry experience in software quality and complex interactive system testing</div>
+    <div class="ei">Identified systematic gaps in QA workflows and <strong>built AI-powered tools to eliminate them</strong> — QA Forge converts product requirements to complete test suites via LLM reasoning, removing 40% of manual test design effort</div>
+    <div class="ei">Designed <strong>vision-based mobile game automation</strong> (RAYR Vision QA) operating without UI selectors — solving the fundamental unsolved problem that makes game automation hard</div>
+    <div class="ei">Managed <strong>end-to-end defect lifecycle</strong>: identification, severity classification, developer handoff, regression verification — across agile sprints with cross-functional teams</div>
+    <div class="ei">Built the production communication and collaboration skills that make <strong>AI products actually ship</strong> — not stay as prototypes or demos</div>
+  </div>
+  <div class="ec">
+    <div class="eh">
+      <div><div class="eco">Self-Directed AI Product Engineering</div><div class="er">AI Product Engineer · Parallel to full-time role</div></div>
+      <div class="ep">2023 – Present</div>
+    </div>
+    <div class="ei">Built and deployed <strong>RAYR Fin</strong> — AI portfolio intelligence for Indian retail investors with real XIRR, Monte Carlo simulation (1,000 paths), live AMFI data, and Groq AI integration</div>
+    <div class="ei">Built and deployed <strong>RAYR Mobile</strong> — a full quant trading PWA running 12 simultaneous technical analysis algorithms across NSE/BSE, US, Forex, Crypto, and F&amp;O markets</div>
+    <div class="ei">Established <strong>GitHub Actions CI/CD pipeline</strong> — automatic build, test, and deployment to GitHub Pages on every commit push</div>
+    <div class="ei">Shipped <strong>5 live products</strong> across fintech, AI tooling, vision automation, and full-stack domains — all publicly accessible, actively maintained</div>
+  </div>
+</section>
+
+<section id="approach">
+  <div class="sk">05 · How I Think</div>
+  <h2>Engineering <em>philosophy</em></h2>
+  <div class="apg">
+    <div class="apc">
+      <div class="apn">01</div>
+      <div class="apt">Domain expertise is the moat</div>
+      <div class="apb">Any developer can call a GPT API. What separates a good AI product from a generic wrapper is <strong>deep understanding of the problem domain</strong>. Six years inside real software quality work means I know exactly what breaks, why it breaks, and what a real solution needs to do.</div>
+    </div>
+    <div class="apc">
+      <div class="apn">02</div>
+      <div class="apt">Ship it. Then make it better.</div>
+      <div class="apb">Every project on this page is live and publicly accessible. Not a mockup, not a prototype. <strong>Real deployment teaches what design thinking never does</strong> — what actually breaks under real users, real data, real devices, real network conditions.</div>
+    </div>
+    <div class="apc">
+      <div class="apn">03</div>
+      <div class="apt">Honest numbers, not estimated ones</div>
+      <div class="apb">RAYR Fin shows real XIRR calculated from actual purchase data — not a percentage guess. QA Forge generates structured tests from actual requirements. <strong>The product should tell the truth</strong>, even when the truth is harder to build than a fake number.</div>
+    </div>
+    <div class="apc">
+      <div class="apn">04</div>
+      <div class="apt">Build for people, not demos</div>
+      <div class="apb">Blur mode in RAYR Fin exists because I thought about someone using their phone in public. The FD comparison exists because I know what Indian investors' first question always is. <strong>Empathy for the user is a technical requirement</strong>, not a soft skill add-on.</div>
+    </div>
+  </div>
+  <div class="pq">
+    <div class="pqt">"Quality is not a phase at the end of development. It is a system you design from the beginning — and the best system prevents problems rather than finding them after the fact."</div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="sk">06 · Let's Talk</div>
+  <h2>Get in <em>touch</em></h2>
+  <p class="ss">Open to full-time roles, freelance projects, and collaborations in AI product engineering, fintech, and intelligent automation. I respond to every message.</p>
+  <div class="cg">
+    <a href="mailto:sharmaadithya1995@gmail.com" class="cc">
+      <div class="ci">✉</div>
+      <div><div class="cl">Email</div><div class="cv">sharmaadithya1995@gmail.com</div></div>
+    </a>
+    <a href="https://github.com/Rayr-06" target="_blank" rel="noreferrer" class="cc">
+      <div class="ci" style="font-size:18px">◆</div>
+      <div><div class="cl">GitHub</div><div class="cv">github.com/Rayr-06</div></div>
+    </a>
+    <a href="https://linkedin.com/in/adithya-sharma-qa-engineer" target="_blank" rel="noreferrer" class="cc">
+      <div class="ci" style="font-family:var(--mono);font-size:12px;font-weight:500;color:var(--blue)">in</div>
+      <div><div class="cl">LinkedIn</div><div class="cv">adithya-sharma-qa-engineer</div></div>
+    </a>
+    <a href="https://rayr-06.github.io/rayr-Fin/" target="_blank" rel="noreferrer" class="cc">
+      <div class="ci">◈</div>
+      <div><div class="cl">Latest Project</div><div class="cv">RAYR Fin — AI Portfolio Intelligence →</div></div>
+    </a>
+  </div>
+  <div class="ca">
+    <div class="cad"></div>
+    <div>
+      <div class="cat">Currently available</div>
+      <div class="cab">Looking for roles where I can <strong>build AI-powered products end-to-end</strong> — from system design to production deployment. Strong preference for companies where the quality of what you build matters as much as how fast you ship it.</div>
+      <div class="cts">
+        <span class="ctg">AI Product Engineering</span>
+        <span class="ctg">Fintech</span>
+        <span class="ctg">LLM Applications</span>
+        <span class="ctg">React · Python</span>
+        <span class="ctg">Remote or Bengaluru</span>
       </div>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="wrap">
-    <p>Built by <span>Adithya Sharma</span> &nbsp;·&nbsp; QA Engineer &amp; Builder &nbsp;·&nbsp; Bengaluru, India</p>
-    <p style="margin-top:8px;font-size:.68rem;opacity:.5;">5 projects shipped · 1 vision · Infinite curiosity</p>
-  </div>
+  <span class="ft">Built by Adithya Sharma · AI Product Engineer · Bengaluru</span>
+  <span class="ft">5 products live · <a href="https://github.com/Rayr-06" target="_blank" rel="noreferrer">github.com/Rayr-06</a></span>
 </footer>
 
 <script>
-  const nav = document.getElementById('nav');
-  const hb = document.getElementById('hb');
-  const nl = document.getElementById('nl');
-
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 80);
-    let cur = '';
-    document.querySelectorAll('section[id]').forEach(s => {
-      if (window.scrollY >= s.offsetTop - 160) cur = s.id;
-    });
-    document.querySelectorAll('.nl a').forEach(a => {
-      a.classList.toggle('act', a.getAttribute('href') === '#' + cur);
-    });
+// Scroll-triggered fade-in
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; obs.unobserve(e.target); }
   });
+}, { threshold: 0.07 });
+document.querySelectorAll('.pc,.skc,.apc,.ec,.cc').forEach(el => {
+  el.style.cssText += ';opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease';
+  obs.observe(el);
+});
 
-  hb.addEventListener('click', () => nl.classList.toggle('open'));
-  nl.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nl.classList.remove('open')));
-
-  const ro = new IntersectionObserver(es => {
-    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); } });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.rev').forEach(el => ro.observe(el));
-
-  function animCount(el) {
-    const val = parseFloat(el.dataset.val);
-    const dec = parseInt(el.dataset.dec);
-    const sfx = el.dataset.sfx || '';
-    const dur = 1400; let t0 = null;
-    function step(ts) {
-      if (!t0) t0 = ts;
-      const p = Math.min((ts - t0) / dur, 1);
-      const e = 1 - Math.pow(1 - p, 3);
-      el.textContent = (val * e).toFixed(dec) + sfx;
-      if (p < 1) requestAnimationFrame(step);
-      else el.textContent = val.toFixed(dec) + sfx;
-    }
-    requestAnimationFrame(step);
-  }
-
-  const co = new IntersectionObserver(es => {
-    if (es[0].isIntersecting) { document.querySelectorAll('.counter').forEach(animCount); co.disconnect(); }
-  }, { threshold: 0.5 });
-  const sr = document.querySelector('.sr');
-  if (sr) co.observe(sr);
+// Active nav
+const secs = document.querySelectorAll('section[id]');
+const nls = document.querySelectorAll('.nl a');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  secs.forEach(s => { if (window.scrollY >= s.offsetTop - 120) cur = s.id; });
+  nls.forEach(a => { a.style.color = a.getAttribute('href') === '#' + cur ? 'var(--gold)' : ''; });
+}, {passive:true});
 </script>
 </body>
 </html>
